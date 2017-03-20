@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="backgroundcolor">#f94f8b</color>
+    <color name="basecolor">#f7f2e9</color>
+    <color name="hintcolor">#b2b2b2</color>
+    <color name="textcolor">#6f6e6e</color>
+
+    <color name="man">#2674ea</color>
+    <color name="girl">#d11c66</color>
+
+
+    <color name="btn1">#e43680</color>
+    <color name="btn2">#f74f97</color>
+
+
+    <color name="tab_on">#f23679</color>
+    <color name="tab_off">#f94f8b</color>
+
+    <color name="tab_on_text">#ffffff</color>
+    <color name="tab_off_text">#70ffffff</color>
+
+
+    <color name="option_on">#f1724d</color>
+    <color name="option_off">#cccccc</color>
+</resources>

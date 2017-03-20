@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/basecolor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/backgroundcolor">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:paddingLeft="15dp"
+            android:text="닉네임(나이) 32km"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_alignParentRight="true"
+                android:layout_width="50dp"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_close"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- 입력폼 시작 -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="구직자 상세정보입니다. 쪽지를 통해 상담해보세요."
+        android:textColor="@color/textcolor"
+        android:textSize="13dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="vertical">
+
+                    <!-- 사진 -->
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/write_mainpicture"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/default_companyimg"/>
+
+                    </LinearLayout>
+
+                    <!-- 가게이름  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:gravity="center|bottom|left"
+                            android:text="닉네임"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/edit_size"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:paddingRight="30dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:gravity="center|bottom"
+                            android:text="여걸땡땡"
+                            android:textColor="#f1724d"
+                            android:textSize="17dp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                    <!-- 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#ababab"></LinearLayout>
+                    <!-- 라인  -->
+
+
+                    <!-- 나이 성별  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_marginRight="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom|left"
+                                android:text="나이"
+                                android:textColor="@color/hintcolor"
+                                android:textSize="@dimen/edit_size"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom"
+                                android:text="21세"
+                                android:textColor="@color/textcolor"
+                                android:textSize="17dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom|left"
+                                android:text="성별"
+                                android:textColor="@color/hintcolor"
+                                android:textSize="@dimen/edit_size"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom"
+                                android:text="여성"
+                                android:textColor="@color/girl"
+                                android:textSize="17dp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 멀티 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:orientation="horizontal"
+                            android:layout_weight="1"
+                            android:background="#ababab">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:orientation="horizontal"
+                            android:layout_weight="1"
+                            android:background="#ababab">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <!-- 멀티 라인  -->
+
+
+                    <!-- 시도 군구  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_marginRight="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom|left"
+                                android:text="시도"
+                                android:textColor="@color/hintcolor"
+                                android:textSize="@dimen/edit_size"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom"
+                                android:text="서울특별시"
+                                android:textColor="@color/textcolor"
+                                android:textSize="17dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom|left"
+                                android:text="군구"
+                                android:textColor="@color/hintcolor"
+                                android:textSize="@dimen/edit_size"
+                                android:textStyle="bold"
+                                android:id="@+id/textView3" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom"
+                                android:text="강남구"
+                                android:textColor="@color/textcolor"
+                                android:textSize="17dp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 멀티 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:orientation="horizontal"
+                            android:layout_weight="1"
+                            android:background="#ababab">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:orientation="horizontal"
+                            android:layout_weight="1"
+                            android:background="#ababab">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <!-- 멀티 라인  -->
+
+
+                    <!-- 희망업종  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:gravity="center|bottom|left"
+                            android:text="희망업종"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/edit_size"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:paddingRight="30dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:gravity="center|bottom"
+                            android:text="노래방"
+                            android:textColor="#f1724d"
+                            android:textSize="17dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#ababab"></LinearLayout>
+                    <!-- 라인  -->
+
+                    <!-- 한마디  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:gravity="center|bottom|left"
+                            android:text="한마디"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/edit_size"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:paddingRight="30dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:gravity="center|bottom"
+                            android:text="일자리 구하러 왔어요~"
+                            android:textColor="@color/textcolor"
+                            android:textSize="17dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#ababab"></LinearLayout>
+                    <!-- 라인  -->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="※밤엔알바는 익명성 어플로 고객님의 정보를 저장하지 않습니다. 이용약관을 준수해주시길 바랍니다."
+                            android:textColor="@color/hintcolor"
+                            android:gravity="center"
+                            android:textSize="13dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@color/btn1">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="쪽지 보내기"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"/>
+
+
+                <ImageView
+                    android:layout_marginLeft="6dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_chat"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

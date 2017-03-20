@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="age">
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>56</item>
+        <item>57</item>
+        <item>58</item>
+        <item>59</item>
+        <item>60</item>
+
+    </string-array>
+
+    <string-array name="area">
+        <item>전체</item>
+        <item>서울</item>
+        <item>경기</item>
+        <item>부산</item>
+        <item>인천</item>
+        <item>대구</item>
+        <item>광주</item>
+        <item>경남</item>
+        <item>충남</item>
+        <item>대전</item>
+        <item>충북</item>
+        <item>경북</item>
+        <item>울산</item>
+        <item>세종</item>
+        <item>전북</item>
+        <item>강원</item>
+        <item>전남</item>
+        <item>제주</item>
+    </string-array>
+
+    <string-array name="seoul">
+        <item>전체</item>
+        <item>강남구</item>
+        <item>강동구</item>
+        <item>강북구</item>
+        <item>강서구</item>
+        <item>관악구</item>
+        <item>광진구</item>
+        <item>구로구</item>
+        <item>금천구</item>
+        <item>노원구</item>
+        <item>도봉구</item>
+        <item>동대문구</item>
+        <item>동작구</item>
+        <item>마포구</item>
+        <item>서대문구</item>
+        <item>서초구</item>
+        <item>성동구</item>
+        <item>성북구</item>
+        <item>송파구</item>
+        <item>양천구</item>
+        <item>영등포구</item>
+        <item>용산구</item>
+        <item>은평구</item>
+        <item>종로구</item>
+        <item>중구</item>
+        <item>중랑구</item>
+    </string-array>
+
+    <string-array name="gyeonggi">
+        <item>전체</item>
+        <item>고양시</item>
+        <item>수원시</item>
+        <item>부천시</item>
+        <item>성남시</item>
+        <item>화성시</item>
+        <item>안양시</item>
+        <item>안산시</item>
+        <item>용인시</item>
+        <item>광명시</item>
+        <item>의정부시</item>
+        <item>김포시</item>
+        <item>평택시</item>
+        <item>시흥시</item>
+        <item>군포시</item>
+        <item>광주시</item>
+        <item>파주시</item>
+        <item>오산시</item>
+        <item>이천시</item>
+    </string-array>
+
+    <string-array name="busan">
+        <item>전체</item>
+        <item>강서구</item>
+        <item>금정구</item>
+        <item>기장군</item>
+        <item>남구</item>
+        <item>동구</item>
+        <item>동래구</item>
+        <item>부산진구</item>
+        <item>북구</item>
+        <item>사상구</item>
+        <item>사하구</item>
+        <item>서구</item>
+        <item>수영구</item>
+        <item>연제구</item>
+        <item>영도구</item>
+    </string-array>
+
+    <string-array name="incheon">
+        <item>전체</item>
+        <item>강화군</item>
+        <item>계양구</item>
+        <item>남구</item>
+        <item>남동구</item>
+        <item>동구</item>
+        <item>부평구</item>
+        <item>서구</item>
+        <item>연수구</item>
+        <item>옹진군</item>
+        <item>중구</item>
+    </string-array>
+
+    <string-array name="daegu">
+        <item>전체</item>
+        <item>달서구</item>
+        <item>동구</item>
+        <item>수성구</item>
+        <item>북구</item>
+        <item>남구</item>
+        <item>중구</item>
+        <item>서구</item>
+    </string-array>
+
+    <string-array name="gwangju">
+        <item>전체</item>
+        <item>서구</item>
+        <item>북구</item>
+        <item>광산구</item>
+        <item>동구</item>
+    </string-array>
+
+    <string-array name="gyeongnam">
+        <item>전체</item>
+        <item>거제시</item>
+        <item>거창군</item>
+        <item>고성군</item>
+        <item>김해시</item>
+        <item>남해군</item>
+        <item>밀양시</item>
+        <item>사천시</item>
+        <item>산청군</item>
+        <item>양산시</item>
+        <item>의령군</item>
+        <item>진주시</item>
+        <item>창녕군</item>
+        <item>창원시</item>
+        <item>통영시</item>
+        <item>하동군</item>
+        <item>함안군</item>
+        <item>함양군</item>
+    </string-array>
+
+    <string-array name="chungnam">
+        <item>전체</item>
+        <item>계룡시</item>
+        <item>공주시</item>
+        <item>금산군</item>
+        <item>논산시</item>
+        <item>당진시</item>
+        <item>보령시</item>
+        <item>부여군</item>
+        <item>서산시</item>
+        <item>서천군</item>
+        <item>아산시</item>
+        <item>예산군</item>
+        <item>천안시</item>
+        <item>청양군</item>
+        <item>태안군</item>
+        <item>홍성군</item>
+    </string-array>
+
+    <string-array name="daejeon">
+        <item>전체</item>
+        <item>대덕구</item>
+        <item>서구</item>
+        <item>유성구</item>
+        <item>중구</item>
+        <item>동구</item>
+    </string-array>
+
+    <string-array name="chungbuk">
+        <item>전체</item>
+        <item>청주시</item>
+    </string-array>
+
+    <string-array name="gyeongsangbuk">
+        <item>전체</item>
+        <item>괴산군</item>
+        <item>단양군</item>
+        <item>보은군</item>
+        <item>영동군</item>
+        <item>옥천군</item>
+        <item>음성군</item>
+        <item>제천시</item>
+        <item>증평군</item>
+        <item>진천군</item>
+        <item>청주시</item>
+        <item>충주시</item>
+    </string-array>
+
+    <string-array name="ulsan">
+        <item>전체</item>
+        <item>남구</item>
+        <item>동구</item>
+        <item>북구</item>
+        <item>울주군</item>
+    </string-array>
+
+    <string-array name="sejong">
+        <item>전체</item>
+        <item>세종시</item>
+    </string-array>
+
+    <string-array name="jeonbuk">
+        <item>전체</item>
+        <item>고창군</item>
+        <item>군산시</item>
+        <item>김제시</item>
+        <item>남원시</item>
+        <item>무주군</item>
+        <item>부안군</item>
+        <item>순창군</item>
+        <item>완주군</item>
+        <item>익산시</item>
+        <item>임실군</item>
+        <item>장수군</item>
+        <item>전주시</item>
+        <item>정읍시</item>
+        <item>진안군</item>
+    </string-array>
+
+    <string-array name="gangwon">
+        <item>전체</item>
+        <item>강릉시</item>
+        <item>고성군</item>
+        <item>동해시</item>
+        <item>삼척시</item>
+        <item>속초시</item>
+        <item>양구군</item>
+        <item>양양군</item>
+        <item>영월군</item>
+        <item>원주시</item>
+        <item>인제군</item>
+        <item>정선군</item>
+        <item>철원군</item>
+        <item>춘천시</item>
+        <item>태백시</item>
+        <item>평창군</item>
+        <item>홍천군</item>
+        <item>화천군</item>
+        <item>횡성군</item>
+    </string-array>
+
+    <string-array name="jeonnam">
+        <item>전체</item>
+        <item>강진군</item>
+        <item>고흥군</item>
+        <item>곡성군</item>
+        <item>광양시</item>
+        <item>구례군</item>
+        <item>나주시</item>
+        <item>담양군</item>
+        <item>목포시</item>
+        <item>무안군</item>
+        <item>보성군</item>
+        <item>순천시</item>
+        <item>신안군</item>
+        <item>여수시</item>
+        <item>영광군</item>
+        <item>영암군</item>
+        <item>완도군</item>
+        <item>장성군</item>
+        <item>장흥군</item>
+        <item>진도군</item>
+        <item>함평군</item>
+        <item>해남군</item>
+        <item>화순군</item>
+
+    </string-array>
+
+    <string-array name="jeju">
+        <item>전체</item>
+        <item>서귀포시</item>
+        <item>제주시</item>
+    </string-array>
+
+    <string-array name="ment">
+        <item>일자리 아무거나 구하러 왔어요~</item>
+        <item>룸싸롱 일자리 구하러 왔어요~</item>
+        <item>텐프로 일자리 구하러 왔어요~</item>
+        <item>노래주점 일자리 구하러 왔어요~</item>
+        <item>BAR 일자리 구하러 왔어요~</item>
+        <item>카페 일자리 구하러 왔어요~</item>
+        <item>요정 일자리 구하러 왔어요~</item>
+        <item>다방 일자리 구하러 왔어요~</item>
+    </string-array>
+
+    <string-array name="sector">
+        <item>룸싸롱</item>
+        <item>텐프로/쩜오</item>
+        <item>노래/단란주점</item>
+        <item>BAR</item>
+        <item>카페</item>
+        <item>요정</item>
+        <item>다방</item>
+        <item>기타</item>
+    </string-array>
+
+    <string-array name="paytype">
+        <item>일급</item>
+        <item>시급</item>
+        <item>주급</item>
+        <item>월급</item>
+        <item>TC</item>
+        <item>면접</item>
+        <item>협의</item>
+    </string-array>
+</resources>

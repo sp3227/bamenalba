@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.moduse.bamenalba">
+
+    <!-- 인터넷 연결 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- GPS 사용 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- GCM 권한 관련 -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 휴대폰 저장관련 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 휴대폰 읽기 쓰기 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <!-- 테스크 권한 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />​
+    <!-- 결제 권한 -->
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:largeHeap="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 액티비티 선언 -->
+        <activity android:name=".Select_signup_Activity"/>
+        <activity android:name=".Signup_P_Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name=".ReadAds_Activity"/>
+        <activity android:name=".Intro_Activity"/>
+        <activity android:name=".WiteAds_Activity"/>
+        <activity android:name=".Readjoper_Activity"/>
+
+
+
+
+
+
+    </application>
+
+</manifest>
