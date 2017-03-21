@@ -1,6 +1,535 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/basecolor">
+
+    <!-- 타이틀 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/backgroundcolor">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:paddingLeft="15sp"
+            android:text="포인트 충전하기"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_alignParentRight="true"
+                android:layout_width="50dp"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_close"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+<!-- 포인트 충전 타이틀 -->
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:background="@drawable/pink_round">
+
+        <TextView
+            android:paddingLeft="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#ffffff"
+            android:text="보유 포인트"
+            android:textSize="13sp"
+            android:gravity="center"/>
+
+        <TextView
+            android:paddingRight="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#ffffff"
+            android:text="123,000P"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:gravity="center|right"/>
+
+    </LinearLayout>
+
+    <!-- 10000 포인트 -->
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="+ 10,000"
+                android:textStyle="bold"
+                android:gravity="center|left"
+                android:textSize="17sp"
+                android:textColor="#fe74a5"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" 포인트 (10,000원)"
+                android:gravity="center|left"
+                android:textSize="14sp"
+                android:textColor="#fe74a5"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingRight="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3.3"
+            android:gravity="center|right">
+
+            <LinearLayout
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:background="@drawable/pink_circle"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="결제"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- 10000 END -->
+
+
+    <!-- 30000 포인트 -->
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="+ 30,000"
+                android:textStyle="bold"
+                android:gravity="center|left"
+                android:textSize="17sp"
+                android:textColor="#fe74a5"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" 포인트 (30,000원)"
+                android:gravity="center|left"
+                android:textSize="14sp"
+                android:textColor="#fe74a5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" (추가 +1000P)"
+                android:gravity="center|left"
+                android:textSize="14sp"
+                android:textColor="#ffa517" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingRight="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center|right">
+
+            <LinearLayout
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:background="@drawable/pink_circle"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="결제"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- 30000 END -->
+
+
+    <!-- 50000 포인트 -->
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="+ 50,000"
+                android:textStyle="bold"
+                android:gravity="center|left"
+                android:textSize="17sp"
+                android:textColor="#fe74a5"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" 포인트 (50,000원)"
+                android:gravity="center|left"
+                android:textSize="14sp"
+                android:textColor="#fe74a5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" (추가 +2000P)"
+                android:gravity="center|left"
+                android:textSize="14sp"
+                android:textColor="#ffa517" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingRight="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center|right">
+
+            <LinearLayout
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:background="@drawable/pink_circle"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="결제"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- 50000 END -->
+
+
+    <!-- 100000 포인트 -->
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="+ 100,000"
+                android:textStyle="bold"
+                android:gravity="center|left"
+                android:textSize="17sp"
+                android:textColor="#fe74a5"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" 포인트 (100,000원)"
+                android:gravity="center|left"
+                android:textSize="14sp"
+                android:textColor="#fe74a5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" (추가 +5000P)"
+                android:gravity="center|left"
+                android:textSize="14sp"
+                android:textColor="#ffa517" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingRight="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center|right">
+
+            <LinearLayout
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:background="@drawable/pink_circle"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="결제"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- 100000 END -->
+
+
+    <!-- 200000 포인트 -->
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="+ 200,000"
+                android:textStyle="bold"
+                android:gravity="center|left"
+                android:textSize="17sp"
+                android:textColor="#fe74a5"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" 포인트 (200,000원)"
+                android:gravity="center|left"
+                android:textSize="14sp"
+                android:textColor="#fe74a5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" (추가 +13000P)"
+                android:gravity="center|left"
+                android:textSize="14sp"
+                android:textColor="#ffa517" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingRight="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center|right">
+
+            <LinearLayout
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:background="@drawable/pink_circle"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="결제"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- 200000 END -->
+
+<!-- VAT 설명 -->
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/hintcolor"
+            android:textSize="13sp"
+            android:text="모든 상품은 VAT(부가세)는 별도 입니다."/>
+
+    </LinearLayout>
+
+
+    <!-- 포인트 충전 타이틀 -->
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:background="@drawable/pink_round">
+
+        <TextView
+            android:paddingLeft="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#ffffff"
+            android:text="쿠폰 입력"
+            android:textSize="13sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/pink_input_round">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="left|center"
+                android:hint="발급된 쿠폰번호를 입력하세요."
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textColorHint="#b2b2b2"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingRight="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center|right">
+
+            <LinearLayout
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:background="@drawable/pink_circle"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="확인"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center|left"
-            android:paddingLeft="15dp"
+            android:paddingLeft="15sp"
             android:text="구인업체 회원가입"
             android:textColor="#ffffff"
             android:textStyle="bold" />
@@ -51,7 +51,8 @@
                     android:layout_height="70dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/sign_logo" />
+                    android:src="@drawable/sign_logo"
+                    android:id="@+id/imageView" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -59,7 +60,7 @@
                     android:gravity="center"
                     android:text="담당자 기준으로 가입 항목을 입력해 주세요. 모두 기입하셔야 합니다. 해당 항목을 꼼꼼히 작성해주세요. 미풍양속 위반 닉네임은 재제될 수 있습니다."
                     android:textColor="#6f6e6e"
-                    android:textSize="13dp"
+                    android:textSize="13sp"
                     android:ellipsize="marquee"
                     android:singleLine="true"/>
 
@@ -549,7 +550,7 @@
                         android:gravity="left|bottom"
                         android:text="※밤엔알바는 익명성 어플로 고객님의 정보를 저장하지 않습니다. 어플에서 이루어지는 이용약관 위반 내용의 손해는 책임이 없음을 알려드립니다."
                         android:textColor="@color/textcolor"
-                        android:textSize="13dp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -582,6 +583,7 @@
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="이용약관 동의"
+                        android:textSize="15sp"
                         android:textColor="@color/backgroundcolor"
                         android:textStyle="bold" />
 
@@ -606,6 +608,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
+                        android:textSize="15sp"
                         android:text="위치정보 취급방침 동의"
                         android:textColor="@color/backgroundcolor"
                         android:textStyle="bold" />
@@ -635,6 +638,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:textSize="15sp"
                     android:text="회원가입 완료"
                     android:textColor="#ffffff"
                     android:textStyle="bold"/>

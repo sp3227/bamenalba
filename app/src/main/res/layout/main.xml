@@ -44,7 +44,7 @@
                     android:layout_marginTop="2dp"
                     android:gravity="center"
                     android:text="구인정보"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textColor="#ffffff" />
 
             </LinearLayout>
@@ -94,7 +94,7 @@
                     android:layout_marginTop="2dp"
                     android:gravity="center"
                     android:text="인재정보"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textColor="#70ffffff"/>
 
             </LinearLayout>
@@ -146,7 +146,7 @@
                     android:layout_marginTop="2dp"
                     android:gravity="center"
                     android:text="등록하기"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textColor="#70ffffff"/>
 
             </LinearLayout>
@@ -208,10 +208,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="5dp"
                             android:gravity="center"
                             android:text="쪽지함"
                             android:textColor="#70ffffff"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
 
 
                             <!-- 알림 카운트 -->
@@ -224,7 +225,7 @@
                                     android:layout_marginLeft="10dp"
                                     android:layout_width="25dp"
                                     android:layout_height="match_parent"
-                                    android:textSize="12dp"
+                                    android:textSize="12sp"
                                     android:textColor="#f4e034"
                                     android:text="99"
                                     android:textStyle="bold"
@@ -285,7 +286,7 @@
                     android:layout_marginTop="2dp"
                     android:gravity="center"
                     android:text="더보기"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textColor="#70ffffff" />
 
             </LinearLayout>

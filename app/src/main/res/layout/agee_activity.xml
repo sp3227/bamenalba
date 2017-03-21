@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center|left"
-            android:paddingLeft="15dp"
+            android:paddingLeft="15sp"
             android:text="구인업체 회원가입"
             android:textColor="#ffffff"
             android:textStyle="bold" />
