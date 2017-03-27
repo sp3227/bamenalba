@@ -4,12 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="backgroundcolor">#f94f8b</color>
+    <color name="subbackgroundcolor">#fe74a5</color>
     <color name="basecolor">#f7f2e9</color>
     <color name="hintcolor">#b2b2b2</color>
     <color name="textcolor">#6f6e6e</color>
 
     <color name="man">#2674ea</color>
-    <color name="girl">#d11c66</color>
+    <color name="girl">#e61c70</color>
 
 
     <color name="btn1">#e43680</color>
@@ -25,4 +26,10 @@
 
     <color name="option_on">#f1724d</color>
     <color name="option_off">#cccccc</color>
+
+
+    <color name="km10">#0ee109</color>
+    <color name="km50">#fba035</color>
+    <color name="km100">#1e1e1e</color>
+
 </resources>

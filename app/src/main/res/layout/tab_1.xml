@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/subbackgroundcolor"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center|left"
+            android:layout_weight="1">
+
+            <!-- 시도 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_arrow2" />
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="세종특별시"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:textColor="#ffffff"/>
+
+            </LinearLayout>
+
+            <!-- 군구 -->
+            <LinearLayout
+                android:layout_marginLeft="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_arrow2" />
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="강남구"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:textColor="#ffffff"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center|right"
+            android:layout_weight="1">
+
+            <!-- 글 옵션 (프리미엄, 일반) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_arrow2" />
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="일반"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:textColor="#ffffff"/>
+
+            </LinearLayout>
+
+            <!-- 정렬 (전체, 거리순, 등록순)-->
+            <LinearLayout
+                android:layout_marginLeft="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_arrow2" />
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="등록순"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:textColor="#ffffff"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+        <ListView
+            android:id="@+id/list_tab1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="3dp"
+            android:scrollbars="none">
+
+        </ListView>
+
+
+</LinearLayout>

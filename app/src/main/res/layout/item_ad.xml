@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff">
+
+        <!-- 프리미엄 아이콘 --> <!-- 프리미엄때만 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_pre"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!-- 업체 로고 -->
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="top|center">
+
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ex_img"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginBottom="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:orientation="horizontal">
+
+                    <!-- 가게이름 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="팡팡노래방"
+                        android:textSize="17sp"
+                        android:gravity="center|left|bottom"
+                        android:textColor="#f1724d"/>
+
+                    <!-- 작성자 닉네임, 나이-->
+                    <TextView
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="김실장님 (35세)"
+                        android:textSize="12dp"
+                        android:gravity="center|left|bottom"
+                        android:textColor="@color/girl"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <!--가게 카테고리-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/gray_round2"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="노래방"
+                            android:textSize="13sp"
+                            android:textColor="@color/textcolor" />
+
+                    </LinearLayout>
+
+                    <!--성별-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/gray_round2"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="여성"
+                            android:textSize="13sp"
+                            android:textColor="@color/girl"
+                            android:id="@+id/textView6" />
+
+                    </LinearLayout>
+
+                    <!--급여방법-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/gray_round2"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="월급"
+                            android:textSize="13sp"
+                            android:textColor="@color/textcolor" />
+
+                    </LinearLayout>
+
+                    <!--급여금액-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/gray_round2"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="3,000,000원"
+                            android:textSize="13sp"
+                            android:textColor="#f1724d" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <!--시도-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/gray_round2"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="서울특별시"
+                            android:textSize="13sp"
+                            android:textColor="@color/textcolor" />
+
+                    </LinearLayout>
+
+                    <!--군구-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/gray_round2"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="강남구"
+                            android:textSize="13sp"
+                            android:textColor="@color/textcolor" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/pink_round2"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/icon_location" />
+
+                        <TextView
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="3km"
+                            android:textSize="13sp"
+                            android:textColor="@color/textcolor" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|right"
+                android:orientation="vertical">
+
+                <!-- 유저 메뉴 -->
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|right"
+                    android:orientation="vertical">
+
+                    <!-- 상세 보기 -->
+                    <LinearLayout
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/uppink_round">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:src="@drawable/icon_detail"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp"
+                            android:text="상세"/>
+
+                    </LinearLayout>
+
+                    <!-- 쪽지 보내기 -->
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/pink_round">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:src="@drawable/icon_letter"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp"
+                            android:text="쪽지"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!-- 작성자 메뉴 -->
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|right"
+                    android:orientation="vertical">
+
+                    <!-- 수정 -->
+                    <LinearLayout
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/brown_round">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:src="@drawable/icon_fix"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp"
+                            android:text="수정"/>
+
+                    </LinearLayout>
+
+                    <!-- 삭제 -->
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/red_round">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:src="@drawable/icon_extension"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp"
+                            android:text="삭제"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -30,7 +30,7 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Chatting_Activity">
+        <activity android:name=".Intro_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,11 +43,27 @@
         <activity android:name=".Signup_P_Activity"
             android:windowSoftInputMode="adjustResize|stateHidden"/>
         <activity android:name=".Main"/>
-        <activity android:name=".Intro_Activity"/>
+        <activity android:name=".Chatting_Activity"/>
         <activity android:name=".WiteAds_Activity"/>
         <activity android:name=".Readjoper_Activity"/>
         <activity android:name=".ReadAds_Activity"/>
         <activity android:name=".Charge_Activity"/>
+
+        <activity android:name=".Tab_1"/>
+        <activity android:name=".Tab_2"/>
+        <activity android:name=".Tab_3"/>
+        <activity android:name=".Tab_4"/>
+        <activity android:name=".Tab_5"/>
+
+
+
+        <!-- POPUP -->
+        <activity
+            android:name=".Popup_letter"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+        </activity>
+
+
 
 
 
