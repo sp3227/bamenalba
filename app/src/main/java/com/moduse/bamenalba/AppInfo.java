@@ -31,11 +31,15 @@ public class AppInfo
 
     // 내 위치 정보(로그인시 한번만 기록됨)
     public static  boolean GPS_state = false;   // GPS 상태
-    private static double My_Latitude;    //경도
-    private static double My_Longitude;   //위도
+    public static double My_Latitude;    //경도
+    public static double My_Longitude;   //위도
 
 
 
+
+    //---------------------------- 설정(푸시 ON/OFF)--------------------------------------------------------//
+    // 내 푸시 상태 (ON/OFF)
+    public static boolean Push_state = true;
 
 
     //---------------------------- GETER--------------------------------------------------------//

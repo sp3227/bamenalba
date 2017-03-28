@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="AlertDialogCustom" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:textColor">#f94f8b</item>
+
+        <item name="colorAccent">@color/backgroundcolor</item>
+    </style>
+
+
+
 </resources>

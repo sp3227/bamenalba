@@ -15,9 +15,10 @@
             android:layout_height="match_parent"
             android:gravity="center|left"
             android:paddingLeft="15sp"
-            android:text="구인업체 회원가입"
+            android:text="이용약관 및 위치정보이용약관"
             android:textColor="#ffffff"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:id="@+id/textView4" />
 
     </LinearLayout>
 
@@ -30,6 +31,7 @@
         android:orientation="horizontal">
 
         <RadioGroup
+            android:id="@+id/agee_radio"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:checkedButton="@+id/agee_select1"
@@ -75,6 +77,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/agee_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/textcolor"

@@ -13,6 +13,8 @@
 
         <!-- 프리미엄 아이콘 --> <!-- 프리미엄때만 -->
         <LinearLayout
+            android:id="@+id/ad_adtype"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left">
@@ -41,6 +43,7 @@
                 android:gravity="top|center">
 
                 <ImageView
+                    android:id="@+id/ad_adimg"
                     android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -64,6 +67,7 @@
 
                     <!-- 가게이름 -->
                     <TextView
+                        android:id="@+id/ad_adtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="팡팡노래방"
@@ -73,6 +77,7 @@
 
                     <!-- 작성자 닉네임, 나이-->
                     <TextView
+                        android:id="@+id/ad_adnicknameandage"
                         android:layout_marginBottom="2dp"
                         android:layout_marginLeft="5dp"
                         android:layout_width="wrap_content"
@@ -100,6 +105,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/ad_adsector"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
@@ -122,6 +128,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/ad_adsex"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
@@ -131,8 +138,7 @@
                             android:gravity="center"
                             android:text="여성"
                             android:textSize="13sp"
-                            android:textColor="@color/girl"
-                            android:id="@+id/textView6" />
+                            android:textColor="@color/girl" />
 
                     </LinearLayout>
 
@@ -145,6 +151,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/ad_adpay"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
@@ -167,6 +174,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/ad_adpayvalue"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
@@ -198,6 +206,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/ad_adadress1"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
@@ -220,6 +229,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/ad_adadress2"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
@@ -247,6 +257,7 @@
                             android:src="@drawable/icon_location" />
 
                         <TextView
+                            android:id="@+id/ad_adlocation"
                             android:layout_marginBottom="5dp"
                             android:layout_marginRight="5dp"
                             android:layout_marginTop="5dp"
@@ -264,6 +275,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ad_user"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center|right"
@@ -330,6 +342,7 @@
 
                 <!-- 작성자 메뉴 -->
                 <LinearLayout
+                    android:id="@+id/ad_my"
                     android:visibility="gone"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"

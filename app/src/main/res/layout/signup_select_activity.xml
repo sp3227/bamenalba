@@ -56,6 +56,7 @@
         android:gravity="center">
 
         <LinearLayout
+            android:onClick="click_select_signup_joper"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="70dp"
             android:layout_width="match_parent"
@@ -120,6 +121,7 @@
 
 
         <LinearLayout
+            android:onClick="click_select_signup_company"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="70dp"
             android:layout_width="match_parent"

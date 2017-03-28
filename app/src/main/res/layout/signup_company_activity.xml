@@ -55,6 +55,7 @@
                     android:id="@+id/imageView" />
 
                 <TextView
+                    android:id="@+id/signup_company_text_notice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -62,7 +63,7 @@
                     android:textColor="#6f6e6e"
                     android:textSize="13sp"
                     android:ellipsize="marquee"
-                    android:singleLine="true"/>
+                    android:singleLine="true" />
 
             </LinearLayout>
 
@@ -85,6 +86,7 @@
                         android:layout_weight="1">
 
                         <EditText
+                            android:id="@+id/signup_company_edit_nickname"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="15dp"
@@ -113,6 +115,7 @@
                     <!-- 위라인 -->
 
                     <LinearLayout
+                        android:id="@+id/signup_company_spenner_age"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="15dp"
@@ -124,12 +127,13 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/text_age"
+                                android:id="@+id/signup_comapny_text_age"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_centerHorizontal="true"
                                 android:gravity="center|bottom"
                                 android:hint="나이"
+                                android:textColor="@color/textcolor"
                                 android:paddingRight="10dp"
                                 android:textColorHint="@color/hintcolor"
                                 android:textSize="@dimen/edit_size" />
@@ -199,6 +203,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:id="@+id/signup_company_click_chack_man"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -217,6 +222,7 @@
 
 
                             <CheckBox
+                                android:id="@+id/signup_company_chackbox_man"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
                                 android:layout_marginLeft="10dp"
@@ -232,6 +238,7 @@
                             android:orientation="horizontal">
 
                             <LinearLayout
+                                android:id="@+id/signup_company_click_chack_girl"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -250,6 +257,7 @@
 
 
                                 <CheckBox
+                                    android:id="@+id/signup_company_chackbox_girl"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:layout_marginLeft="10dp"
@@ -283,6 +291,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/signup_company_spenner_address_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1">
@@ -305,6 +314,7 @@
                             android:layout_marginRight="5dp">
 
                             <TextView
+                                android:id="@+id/signup_company_text_address_1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
@@ -349,6 +359,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/signup_company_spenner_address_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1">
@@ -370,6 +381,7 @@
                             android:layout_marginBottom="15dp">
 
                             <TextView
+                                android:id="@+id/signup_company_text_address_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
@@ -410,8 +422,9 @@
                     android:background="#ababab"></LinearLayout>
                 <!-- 라인  -->
 
-                <!-- 한마디  -->
+                <!-- 업종  -->
                 <LinearLayout
+                    android:id="@+id/signup_company_spenner_sector"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginLeft="15dp"
@@ -434,6 +447,7 @@
                         android:layout_marginBottom="15dp">
 
                         <TextView
+                            android:id="@+id/signup_company_text_sector"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_centerInParent="true"
@@ -473,8 +487,9 @@
                     android:background="#ababab"></LinearLayout>
                 <!-- 라인  -->
 
-                <!-- 희망 업종  -->
+                <!-- 한마디  -->
                 <LinearLayout
+                    android:id="@+id/signup_company_spenner_ment"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginLeft="15dp"
@@ -497,13 +512,14 @@
                         android:layout_marginBottom="15dp">
 
                         <TextView
+                            android:id="@+id/signup_company_text_ment"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_centerInParent="true"
                             android:gravity="center|bottom"
                             android:paddingRight="19dp"
                             android:textColorHint="@color/textcolor"
-                            android:hint="함께 일할 가족을 찾아요~"
+                            android:hint="한마디를 선택하세요."
                             android:textColor="@color/textcolor"
                             android:textSize="@dimen/edit_size" />
 
@@ -548,8 +564,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="left|bottom"
-                        android:text="※밤엔알바는 익명성 어플로 고객님의 정보를 저장하지 않습니다. 어플에서 이루어지는 이용약관 위반 내용의 손해는 책임이 없음을 알려드립니다."
+                        android:text="※밤엔알바는 익명성 어플로 고객님의 정보를 저장하지 않습니다. 어플에서 이루어지는 이용약관 위반 내용의 손해는 책임이 없음을 알려드립니다. (약관을 클릭하여 확인해주세요.)"
                         android:textColor="@color/textcolor"
+                        android:lineSpacingExtra="2dp"
                         android:textSize="13sp" />
 
                 </LinearLayout>
@@ -572,12 +589,14 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/signup_company_chackbox_tos_1"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:background="@drawable/chackbox_2"
                         android:button="@android:color/transparent" />
 
                     <TextView
+                        android:id="@+id/signup_company_click_chack_tos_1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
@@ -598,12 +617,14 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/signup_company_chackbox_tos_2"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:background="@drawable/chackbox_2"
                         android:button="@android:color/transparent" />
 
                     <TextView
+                        android:id="@+id/signup_company_click_chack_tos_2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
@@ -623,6 +644,7 @@
     </ScrollView>
 
         <RelativeLayout
+            android:onClick="click_company_signup_submit"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 

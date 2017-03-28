@@ -42,6 +42,7 @@
         <activity android:name=".Select_signup_Activity"/>
         <activity android:name=".Signup_P_Activity"
             android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name=".Agee_Activity"/>
         <activity android:name=".Main"/>
         <activity android:name=".Chatting_Activity"/>
         <activity android:name=".WiteAds_Activity"/>
@@ -68,6 +69,30 @@
 
 
 
+
+
+
+        <!-- [START gcm_receiver] -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="net.saltfactory.demo.gcm" />
+            </intent-filter>
+        </receiver>
+
+        <!-- GCM 관련 -->
+        <receiver
+            android:name=".GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.moduse.bamenalba" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".GcmIntentService" />
 
 
     </application>

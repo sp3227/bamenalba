@@ -74,6 +74,8 @@ public class Main extends AppCompatActivity {
         //레이아웃 인플레어
         add_Linear.removeAllViews();
         add_Linear.addView(tab_1.in_layout,layoutParams);
+
+        tab_1.Tamps();
     }
 
     public void Tab2_road()

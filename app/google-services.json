@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "788887005633",
+    "firebase_url": "https://bamenalba.firebaseio.com",
+    "project_id": "bamenalba",
+    "storage_bucket": "bamenalba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788887005633:android:41a92b02be13e7ef",
+        "android_client_info": {
+          "package_name": "com.moduse.bamenalba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "788887005633-t2rmm7q4kcmltigqloujnpnludlsbedu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moduse.bamenalba",
+            "certificate_hash": "88c8fb0c5e7b88f35a6078c1106bb9efa09e975d"
+          }
+        },
+        {
+          "client_id": "788887005633-3tbt9uaeapvqqsi9ccgdhhda8ir36lgh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJo9QNGb50jph2EdJcbUmTDoJy9pN-OBQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "788887005633-3tbt9uaeapvqqsi9ccgdhhda8ir36lgh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

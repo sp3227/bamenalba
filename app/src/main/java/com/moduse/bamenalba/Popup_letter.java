@@ -42,7 +42,7 @@ public class Popup_letter extends Activity
 
     public void click_letter_send(View v)
     {
-        Toast.makeText(this.getApplicationContext(),"클릭욌다!!!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this.getApplicationContext(),"클릭했다!!!",Toast.LENGTH_SHORT).show();
         finish();
     }
 
