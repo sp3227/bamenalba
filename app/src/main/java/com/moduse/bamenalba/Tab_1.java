@@ -104,49 +104,64 @@ public class Tab_1 extends Activity
 
     public void Tamps()
     {
+        AppInfo.MY_LOGINID = "345345345345";
+
         String idx = "1";
+        String adidx = "4576456345thfghfg";
         String deviceID = "12412412";
         String ad_type = "premium";
         String ad_name = "가락동1번지";
         String ad_sector = "노래방";
         String ad_img = "none";
-        String ad_sex = "여자";
+        String ad_sex = "남자";
         String ad_pay = "일급";
         String ad_payvalue = "500,000";
-        String ad_adress1 = "부산광역시";
+        String ad_adress1 = "부산";
         String ad_adress2 = "달동";
         String ad_location = "10";
         String user_sex = "남자";
         String user_name = "김실장";
         String user_age = "33";
 
+        listItem.add(new Data_Ad(idx, adidx, deviceID, ad_type, ad_name, ad_sector, ad_img, ad_sex, ad_pay, ad_payvalue, ad_adress1, ad_adress2, ad_location, user_sex, user_name, user_age));
 
-        for(int i=0; i< 10; i++)
-        {
-            if(i == 5)
-            {
-                ad_img = "http://i.huffpost.com/gen/4108726/thumbs/o-KOREA-570.jpg?7";
-                ad_type = "none";
-                ad_name = "사장님나이스샷";
-                user_sex = "여자";
-                user_name = "박사장";
-                user_age = " 22";
-                ad_location = "50";
-            }
+         idx = "2";
+         adidx = "657567567567567567";
+         deviceID = "352722070234532";
+         ad_type = "none";
+         ad_name = "황금동2번지";
+         ad_sector = "룸사롱/주점";
+         ad_img = "http://img.gqkorea.co.kr/gq/2016/06/style_5768dfc869514-818x1024-1466491052.jpg";
+         ad_sex = "여자";
+         ad_pay = "일급";
+         ad_payvalue = "1,000,000";
+         ad_adress1 = "광주";
+         ad_adress2 = "광산구";
+         ad_location = "56";
+         user_sex = "여자";
+         user_name = "김마담";
+         user_age = "42";
 
-            if(i == 8)
-            {
-                ad_img = "http://i.huffpost.com/gen/4108726/thumbs/o-KOREA-570.jpg?7";
-                ad_type = "none";
-                ad_name = "8번이닷";
-                user_sex = "남자";
-                user_name = "히리릿";
-                user_age = " 44";
-                ad_location = "120";
-                ad_sector = "가라오케/카페";
-            }
-            listItem.add(new Data_Ad(idx, deviceID, ad_type, ad_name, ad_sector, ad_img, ad_sex, ad_pay, ad_payvalue, ad_adress1, ad_adress2, ad_location, user_sex, user_name, user_age));
-        }
+        listItem.add(new Data_Ad(idx, adidx, deviceID, ad_type, ad_name, ad_sector, ad_img, ad_sex, ad_pay, ad_payvalue, ad_adress1, ad_adress2, ad_location, user_sex, user_name, user_age));
+
+        idx = "3";
+        adidx = "12156546567";
+        deviceID = "456456";
+        ad_type = "premium";
+        ad_name = "황금동2번지";
+        ad_sector = "가라오케";
+        ad_img = "http://blogfiles5.naver.net/20131222_114/rhdwbsnla1_1387699653947pnCy5_JPEG/%3F%3F%3F%3F%3F%3F9.jpg";
+        ad_sex = "여자";
+        ad_pay = "주급";
+        ad_payvalue = "500,000";
+        ad_adress1 = "제주";
+        ad_adress2 = "제주시";
+        ad_location = "456";
+        user_sex = "남자";
+        user_name = "미미짱";
+        user_age = "66";
+
+        listItem.add(new Data_Ad(idx, adidx, deviceID, ad_type, ad_name, ad_sector, ad_img, ad_sex, ad_pay, ad_payvalue, ad_adress1, ad_adress2, ad_location, user_sex, user_name, user_age));
 
         Make_Talk();
     }
@@ -203,6 +218,16 @@ public class Tab_1 extends Activity
                 holder.View_ad_adress2 = (TextView) convertView.findViewById(R.id.ad_adadress2);
                 holder.View_ad_loaction = (TextView) convertView.findViewById(R.id.ad_adlocation);
                 holder.View_ad_location_panel = (LinearLayout) convertView.findViewById(R.id.ad_adlocation_panel);
+
+
+                holder.View_user_panel = (LinearLayout) convertView.findViewById(R.id.ad_user_panel);
+                holder.View_my_panel = (LinearLayout) convertView.findViewById(R.id.ad_my_panel);
+                holder.View_user_ad_detail = (LinearLayout) convertView.findViewById(R.id.ad_btn_detail);
+                holder.View_user_ad_sand_massage = (LinearLayout) convertView.findViewById(R.id.ad_btn_sand_massage);
+                holder.View_user_ad_fix = (LinearLayout) convertView.findViewById(R.id.ad_btn_adfix);
+                holder.View_user_ad_delete = (LinearLayout) convertView.findViewById(R.id.ad_btn_addelete);
+
+
 
 
                 convertView.setTag(holder);
@@ -287,7 +312,7 @@ public class Tab_1 extends Activity
                 //급여 타입 END
 
                 //급여 금액
-                holder.View_ad_payvalue.setText(data.GET_ad_payvalue());
+                holder.View_ad_payvalue.setText(data.GET_ad_payvalue()+"원");
                 //급여 금액 END
 
                 // 시도
@@ -301,8 +326,17 @@ public class Tab_1 extends Activity
                 //거리
                 if(data.GET_ad_type().toString().equals("premium"))
                 {
-                    holder.View_ad_loaction.setText(data.GET_ad_location() + "km");
                     Tamp_location = Integer.parseInt(data.GET_ad_location().toString());
+
+                    if(Tamp_location > 400)
+                    {
+                        holder.View_ad_loaction.setText("???km");
+                    }
+                    else
+                    {
+                        holder.View_ad_loaction.setText(data.GET_ad_location() + "km");
+                    }
+
                     if (Tamp_location < 30)
                     {
                         holder.View_ad_loaction.setTextColor(convertView.getResources().getColor(R.color.km10));
@@ -323,6 +357,41 @@ public class Tab_1 extends Activity
                 {
                     holder.View_ad_location_panel.setVisibility(View.GONE);
                 }
+                //거리 END
+
+                // 유저 패널 및 작성자 패널
+                if(!data.GET_deviceID().toString().equals(AppInfo.MY_LOGINID))
+                {
+                    holder.View_user_panel.setVisibility(View.VISIBLE);
+                    holder.View_my_panel.setVisibility(View.GONE);
+                }
+                else
+                {
+                    holder.View_user_panel.setVisibility(View.GONE);
+                    holder.View_my_panel.setVisibility(View.VISIBLE);
+                }
+                // 유저 패널 및 작성자 패널 END
+
+                // 업체 상세 보기 클릭
+                holder.View_user_ad_detail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        // 광고글 식별 아이디로 Intent
+                        ((Main) Main.MainContext).company_detail(data.GET_adidx());
+                    }
+                });
+                // 업체 상세 보기 클릭 END
+
+                // 업체 쪽지보내기
+                holder.View_user_ad_sand_massage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        // 광고글 작성자 식별 아이디로 Intent
+                        ((Main) Main.MainContext).sand_massage_company(data.GET_deviceID(), data.GET_ad_type() , data.GET_ad_sex(), data.GET_user_name(), data.GET_user_age(), data.GET_ad_location());
+                    }
+                });
 
             }
 
@@ -346,6 +415,13 @@ public class Tab_1 extends Activity
             TextView        View_ad_adress2;
             TextView        View_ad_loaction;
             LinearLayout    View_ad_location_panel;
+
+            LinearLayout    View_user_panel;
+            LinearLayout    View_my_panel;
+            LinearLayout    View_user_ad_detail;
+            LinearLayout    View_user_ad_sand_massage;
+            LinearLayout    View_user_ad_fix;
+            LinearLayout    View_user_ad_delete;
 
 
 

@@ -7,6 +7,7 @@ package com.moduse.bamenalba;
 public class Data_Ad
 {
     private String idx;
+    private String adidx;
     private String deviceID;
     private String ad_type;
     private String ad_name;
@@ -22,10 +23,12 @@ public class Data_Ad
     private String user_name;
     private String user_age;
 
-    public Data_Ad(String idx_, String deviceID_, String ad_type_, String ad_name_, String ad_sector_, String ad_img_, String ad_sex_, String ad_pay_, String ad_payvalue_, String ad_adress1_, String ad_adress2_, String ad_location_
+    public Data_Ad(String idx_,String adidx_, String deviceID_, String ad_type_, String ad_name_, String ad_sector_, String ad_img_, String ad_sex_, String ad_pay_, String ad_payvalue_, String ad_adress1_, String ad_adress2_, String ad_location_
             , String user_sex_, String user_name_, String user_age_)
     {
         idx=idx_;
+        adidx= adidx_;
+
         deviceID=deviceID_;
 
         ad_type=ad_type_;
@@ -47,6 +50,7 @@ public class Data_Ad
 
     // GETer
     public String GET_idx(){ return idx; }
+    public String GET_adidx(){ return adidx; }
     public String GET_deviceID(){ return deviceID; }
     public String GET_ad_type(){ return ad_type; }
     public String GET_ad_name(){ return ad_name; }
@@ -65,6 +69,7 @@ public class Data_Ad
 
     //SETer
     public void SET_idx(String value){ idx = value; }
+    public void SET_adidx(String value){ adidx = value; }
     public void SET_deviceID(String value){ deviceID = value; }
     public void SET_ad_type(String value){ ad_type = value; }
     public void SET_ad_name(String value){ ad_name = value; }

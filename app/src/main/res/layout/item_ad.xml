@@ -291,8 +291,8 @@
                 android:orientation="vertical">
 
                 <!-- 유저 메뉴 -->
-
                 <LinearLayout
+                    android:id="@+id/ad_user_panel"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:gravity="center|right"
@@ -300,6 +300,7 @@
 
                     <!-- 상세 보기 -->
                     <LinearLayout
+                        android:id="@+id/ad_btn_detail"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:orientation="vertical"
@@ -323,6 +324,7 @@
 
                     <!-- 쪽지 보내기 -->
                     <LinearLayout
+                        android:id="@+id/ad_btn_sand_massage"
                         android:layout_marginTop="5dp"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
@@ -351,7 +353,7 @@
 
                 <!-- 작성자 메뉴 -->
                 <LinearLayout
-                    android:id="@+id/ad_my"
+                    android:id="@+id/ad_my_panel"
                     android:visibility="gone"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
@@ -360,6 +362,7 @@
 
                     <!-- 수정 -->
                     <LinearLayout
+                        android:id="@+id/ad_btn_adfix"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:orientation="vertical"
@@ -383,6 +386,7 @@
 
                     <!-- 삭제 -->
                     <LinearLayout
+                        android:id="@+id/ad_btn_addelete"
                         android:layout_marginTop="5dp"
                         android:layout_width="43dp"
                         android:layout_height="43dp"

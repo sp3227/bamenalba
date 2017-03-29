@@ -1,10 +1,13 @@
 package com.moduse.bamenalba;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -13,8 +16,28 @@ import android.widget.Toast;
 
 public class Popup_letter extends Activity
 {
-    @Override
+    TextView taget_name;
+    TextView taget_age;
+    TextView taget_loaction;
 
+    LinearLayout point_panel;
+    TextView     my_point;
+    TextView     my_send_text;
+
+    String Ad_Type             = null;
+
+    String Sand_Type           = null;
+    String Sand_AdIdx          = null;
+    String Sand_Sex             = null;
+    String Sand_NickName       = null;
+    String Sand_Age             = null;
+    String Sand_Loaction        = null;
+
+    //임시 거리
+    int Tamp_location;
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -38,11 +61,107 @@ public class Popup_letter extends Activity
         getWindow().setAttributes(layoutParams);
         setContentView(R.layout.pop_letter);
 
+
+        // 인텐트
+        Intent intent = getIntent();
+        Sand_Type = intent.getStringExtra("sand_type");
+        Ad_Type = intent.getStringExtra("ad_type");
+        Sand_Type = intent.getStringExtra("ad_type");
+        Sand_AdIdx = intent.getStringExtra("taget_idx");
+        Sand_Sex = intent.getStringExtra("taget_sex");
+        Sand_NickName = intent.getStringExtra("taget_nickname");
+        Sand_Age = intent.getStringExtra("taget_age");
+        Sand_Loaction = intent.getStringExtra("taget_loaction");
+
+        init_poplayout();
     }
 
+    // 레이아웃 업데이트
+    public void init_poplayout()
+    {
+        taget_name = (TextView) findViewById(R.id.pop_latter_nickname);
+        taget_age = (TextView) findViewById(R.id.pop_latter_age);
+        taget_loaction = (TextView) findViewById(R.id.pop_latter_loaction);
+
+        point_panel = (LinearLayout) findViewById(R.id.pop_latter_point_panel);
+        my_point = (TextView) findViewById(R.id.pop_latter_point);
+        my_send_text = (TextView) findViewById(R.id.pop_latter_sand_text);
+
+        // 유저가 쪽지 보낼때는 포인트 창 끄기
+        if(Sand_Type.toString().equals("usersand"))
+        {
+            point_panel.setVisibility(View.GONE);
+            my_send_text.setText("보내기");
+        }
+        else
+        {
+            point_panel.setVisibility(View.VISIBLE);
+            my_send_text.setText("보내기(30P)");
+        }
+
+        // 받는 사람 타겟 닉네임, 나이 - 성별 구별
+        taget_name.setText(Sand_NickName);
+        taget_age.setText("("+Sand_Age+"세)");
+
+        if(Sand_Sex.toString().equals("여자"))
+        {
+            taget_name.setTextColor(getResources().getColor(R.color.girl));
+            taget_age.setTextColor(getResources().getColor(R.color.girl));
+        }
+        else
+        {
+            taget_name.setTextColor(getResources().getColor(R.color.man));
+            taget_age.setTextColor(getResources().getColor(R.color.man));
+        }
+
+        // 거리
+        if(Ad_Type.toString().equals("premium"))
+        {
+            Tamp_location = Integer.parseInt(Sand_Loaction);
+
+            if(Tamp_location > 400)
+            {
+                taget_loaction.setText("???km");
+            }
+            else
+            {
+                taget_loaction.setText(Sand_Loaction + "km");
+            }
+
+            if (Tamp_location < 30)
+            {
+                taget_loaction.setTextColor(getResources().getColor(R.color.km10));
+            }
+            else
+            {
+                if (Tamp_location < 60)
+                {
+                    taget_loaction.setTextColor(getResources().getColor(R.color.km50));
+                }
+                else
+                {
+                    taget_loaction.setTextColor(getResources().getColor(R.color.km100));
+                }
+            }
+        }
+        else
+        {
+            taget_loaction.setVisibility(View.GONE);
+        }
+
+    }
+
+
+    // 쪽지 보내기
     public void click_letter_send(View v)
     {
-        Toast.makeText(this.getApplicationContext(),"클릭했다!!!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this.getApplicationContext(),"보냈슴~~",Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    // 팝업 닫기
+    public void click_letter_close(View v)
+    {
         finish();
     }
 

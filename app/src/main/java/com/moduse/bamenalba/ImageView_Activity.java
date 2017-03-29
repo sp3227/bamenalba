@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 
@@ -37,6 +38,11 @@ public class ImageView_Activity extends AppCompatActivity {
 
 
         StopShow();
+    }
+
+    public void Viewer_close(View v)
+    {
+        finish();
     }
 
 
