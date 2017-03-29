@@ -1,6 +1,10 @@
 package com.moduse.bamenalba;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -8,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -39,6 +44,21 @@ public class Main extends AppCompatActivity {
     LinearLayout add_Linear;  // 내부 삽입 레이아웃
     LayoutInflater Inflater;
     LinearLayout.LayoutParams layoutParams;
+
+    // 선택되는 군구 (변화)
+    String[] select_address2 = null;
+
+    // 다이얼로그 상수
+    final int Dialog_Search_address1      = 0;  // 시도
+    final int Dialog_Search_address2      = 1;  // 군구
+    final int Dialog_Search_adtpye        = 2;  // 광고 타입 (프리미엄, 일반)
+    final int Dialog_Search_adloadtpye   = 3;  // 정렬 (거리순, 전체)
+
+    // 탭1 상단 레이아웃
+    TextView search_adress1;
+    TextView search_adress2;
+    TextView search_adtype;
+    TextView search_adloadtype;
 
 
     @Override
@@ -74,6 +94,12 @@ public class Main extends AppCompatActivity {
         //레이아웃 인플레어
         add_Linear.removeAllViews();
         add_Linear.addView(tab_1.in_layout,layoutParams);
+
+        // 레이아웃 연결
+        search_adress1 = (TextView) findViewById(R.id.tab1_text_adress1);
+        search_adress2 = (TextView) findViewById(R.id.tab1_text_adress2);
+        search_adtype = (TextView) findViewById(R.id.tab1_text_adtype);
+        search_adloadtype = (TextView) findViewById(R.id.tab1_text_adloadtype);
 
         tab_1.Tamps();
     }
@@ -192,6 +218,40 @@ public class Main extends AppCompatActivity {
 
 
 
+/*--------------------------------------------------------------------------탭 1 함수  ----------------------------------------   */
+
+    // 클릭 리스너
+    // 검색 시도 클릭
+    public void tab1_click_adress1(View v)
+    {
+        select_address2 = null;
+        showDialog(Dialog_Search_address1);
+    }
+
+    // 검색 군구 클릭
+    public void tab1_click_adress2(View v)
+    {
+        if(select_address2 == null)
+        {
+            Toast.makeText(Main.MainContext,"시도를 먼저 선택해주세요.",Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            showDialog(Dialog_Search_address2);
+        }
+    }
+
+    // 광고 타입 클릭
+    public void tab1_click_adtype(View v)
+    {
+        showDialog(Dialog_Search_adtpye);
+    }
+
+    // 광고 정렬 타입 클릭
+    public void tab1_click_adloadtype(View v)
+    {
+        showDialog(Dialog_Search_adloadtpye);
+    }
 
 
 
@@ -201,13 +261,228 @@ public class Main extends AppCompatActivity {
 
 
 
+// 이미지 뷰어
+    public void ImageViewer(String url)
+    {
+        Intent intent = new Intent(Main.MainContext, ImageView_Activity.class);
+
+        intent.putExtra("adimg_url",url);
+
+        startActivity(intent);
+    }
+
+    public Dialog onCreateDialog(int id)
+    {
+        switch(id)
+        {
+            case Dialog_Search_address1: // 시도
+            {
+                final CharSequence[] item = mergeArrays(getResources().getStringArray(R.array.all), getResources().getStringArray(R.array.area));
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+
+                builder.setTitle("검색 하려는 지역을 선택하세요.") // 제목 설정
+                        .setItems(item, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+
+                                search_adress1.setText(item[i].toString());
+                              //  text_address_1.setText(item[i].toString());
+                              //  DATA_address_1 = item[i].toString();
+
+                                 select_address(item[i].toString());
+                            }
+
+                        });
+                AlertDialog alert = builder.create();  //알림 객체 생성
+
+                return alert;
+
+            }
+            case Dialog_Search_address2: // 군구
+            {
+                final CharSequence[] item = mergeArrays(getResources().getStringArray(R.array.all),select_address2);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+
+                builder.setTitle("세부 지역을 선택하세요.") // 제목 설정
+                        .setItems(item, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+
+                                search_adress2.setText(item[i].toString());
+
+                            }
+
+                        });
+                AlertDialog alert = builder.create();  //알림 객체 생성
+
+                return alert;
+
+            }
+            case Dialog_Search_adtpye: // 애드 타입
+            {
+                final CharSequence[] item = {"프리미엄","일반"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+
+                builder.setTitle("광고 유형을 선택하세요.") // 제목 설정
+                        .setItems(item, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+
+                                search_adtype.setText(item[i].toString());
+
+                            }
+
+                        });
+                AlertDialog alert = builder.create();  //알림 객체 생성
+
+                return alert;
+
+            }
+            case Dialog_Search_adloadtpye: // 애드 로드 타입
+            {
+                final CharSequence[] item = {"거리순", "등록순"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+
+                builder.setTitle("광고 정렬을 선택하세요.") // 제목 설정
+                        .setItems(item, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+
+                                search_adloadtype.setText(item[i].toString());
+
+                            }
+
+                        });
+                AlertDialog alert = builder.create();  //알림 객체 생성
+
+                return alert;
+
+            }
+        }
+
+        return null;
+    }
+
+    @Deprecated
+    protected void onPrepareDialog(int id, Dialog dialog)
+    {
+        super.onPrepareDialog(id, dialog);
+        //해당 다이얼로그는 매번 다시 부름.
+        switch(id)
+        {
+            case Dialog_Search_address1:
+                removeDialog(Dialog_Search_address2);
+
+                //없에면 다시 새로 그림
+        }
+    }
 
 
 
 
 
 
+    //-------------------------------------------------------- 배열 합치는 메서드-------------------------------//
+    public CharSequence[] mergeArrays(CharSequence[] arrA, CharSequence[] arrB)
+    {
 
+        int sumLength = arrA.length + arrB.length;
+        CharSequence[] arrSum = new CharSequence[sumLength];
+
+        for (int i = 0; i < sumLength; i++)
+        {
+            if (i < arrA.length)
+            {
+                arrSum[i] = arrA[i];
+            }
+            else
+            {
+                arrSum[i] = arrB[i - arrA.length];
+            }
+        }
+        return arrSum;
+    }
+
+
+    //--------------------------------------------------------------- 군구 선택 함수----------------------//
+    public void select_address(String value)
+    {
+        select_address2 = null;
+        search_adress2.setText("전체");
+
+        if (value.toString().equals("전체"))
+        {
+            select_address2 = null;
+        }
+        else if(value.toString().equals("서울"))
+        {
+            select_address2 = getResources().getStringArray(R.array.seoul);
+        }
+        else if(value.toString().equals("경기"))
+        {
+            select_address2 = getResources().getStringArray(R.array.gyeonggi);
+        }
+        else if(value.toString().equals("부산"))
+        {
+            select_address2 = getResources().getStringArray(R.array.busan);
+        }
+        else if(value.toString().equals("인천"))
+        {
+            select_address2 = getResources().getStringArray(R.array.incheon);
+        }
+        else if(value.toString().equals("대구"))
+        {
+            select_address2 = getResources().getStringArray(R.array.daegu);
+        }
+        else if(value.toString().equals("광주"))
+        {
+            select_address2 = getResources().getStringArray(R.array.gwangju);
+        }
+        else if(value.toString().equals("경남"))
+        {
+            select_address2 = getResources().getStringArray(R.array.gyeongnam);
+        }
+        else if(value.toString().equals("충남"))
+        {
+            select_address2 = getResources().getStringArray(R.array.chungnam);
+        }
+        else if(value.toString().equals("대전"))
+        {
+            select_address2 = getResources().getStringArray(R.array.daejeon);
+        }
+        else if(value.toString().equals("충북"))
+        {
+            select_address2 = getResources().getStringArray(R.array.chungbuk);
+        }
+        else if(value.toString().equals("경북"))
+        {
+            select_address2 = getResources().getStringArray(R.array.gyeongsangbuk);
+        }
+        else if(value.toString().equals("울산"))
+        {
+            select_address2 = getResources().getStringArray(R.array.ulsan);
+        }
+        else if(value.toString().equals("세종"))
+        {
+            select_address2 = getResources().getStringArray(R.array.sejong);
+        }
+        else if(value.toString().equals("전북"))
+        {
+            select_address2 = getResources().getStringArray(R.array.jeonbuk);
+        }
+        else if(value.toString().equals("강원"))
+        {
+            select_address2 = getResources().getStringArray(R.array.gangwon);
+        }
+        else if(value.toString().equals("전남"))
+        {
+            select_address2 = getResources().getStringArray(R.array.jeonnam);
+        }
+        else if(value.toString().equals("제주"))
+        {
+            select_address2 = getResources().getStringArray(R.array.jeju);
+        }
+    }
 
 /*--------------------------------------------------------------------------탭 체인지 이미지 변경 막코딩 ----------------------------------------   */
     public void SET_tab_refash(int value)

@@ -238,6 +238,7 @@ public class Signup_P_Activity extends AppCompatActivity {
            @Override
            public void onClick(View v)
            {
+               DATA_sex = null;
                checkBox_man.setChecked(true);
                checkBox_girl.setChecked(false);
 
@@ -250,6 +251,7 @@ public class Signup_P_Activity extends AppCompatActivity {
            @Override
            public void onClick(View v)
            {
+               DATA_sex = null;
                checkBox_man.setChecked(false);
                checkBox_girl.setChecked(true);
 
@@ -346,6 +348,7 @@ public class Signup_P_Activity extends AppCompatActivity {
 
             Intent intent = new Intent(getApplicationContext(),Main.class);
             startActivity(intent);
+            finish();
         }
         else
         {
@@ -362,6 +365,7 @@ public class Signup_P_Activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"가입 성공",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(),Main.class);
             startActivity(intent);
+            finish();
         }
         else
         {
@@ -562,6 +566,8 @@ public class Signup_P_Activity extends AppCompatActivity {
     public void select_address(String value)
     {
         select_address2 = null;
+        text_address_2.setText(null);
+        DATA_address_2 = null;
 
         if(value.toString().equals("서울"))
         {

@@ -14,7 +14,6 @@
         <!-- 프리미엄 아이콘 --> <!-- 프리미엄때만 -->
         <LinearLayout
             android:id="@+id/ad_adtype"
-            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left">
@@ -24,6 +23,15 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_pre"/>
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ad_adtype_margin"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="10dp">
 
         </LinearLayout>
 
@@ -244,6 +252,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ad_adlocation_panel"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginRight="5dp"

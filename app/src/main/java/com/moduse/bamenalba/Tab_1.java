@@ -15,6 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
@@ -22,6 +25,8 @@ import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
 import java.util.Vector;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * Created by sejung on 2017-03-22.
@@ -44,6 +49,9 @@ public class Tab_1 extends Activity
     // 페이지 넘머 기록
     int Last_ListIndex = 0;
     boolean LastTalkVisibleFlag = false;
+
+    // 거리 임시
+    int Tamp_location = 0;
 
 
 
@@ -107,14 +115,36 @@ public class Tab_1 extends Activity
         String ad_payvalue = "500,000";
         String ad_adress1 = "부산광역시";
         String ad_adress2 = "달동";
-        String ad_location = "10km";
+        String ad_location = "10";
         String user_sex = "남자";
         String user_name = "김실장";
         String user_age = "33";
 
 
-        for(int i=0; i< 20; i++)
+        for(int i=0; i< 10; i++)
         {
+            if(i == 5)
+            {
+                ad_img = "http://i.huffpost.com/gen/4108726/thumbs/o-KOREA-570.jpg?7";
+                ad_type = "none";
+                ad_name = "사장님나이스샷";
+                user_sex = "여자";
+                user_name = "박사장";
+                user_age = " 22";
+                ad_location = "50";
+            }
+
+            if(i == 8)
+            {
+                ad_img = "http://i.huffpost.com/gen/4108726/thumbs/o-KOREA-570.jpg?7";
+                ad_type = "none";
+                ad_name = "8번이닷";
+                user_sex = "남자";
+                user_name = "히리릿";
+                user_age = " 44";
+                ad_location = "120";
+                ad_sector = "가라오케/카페";
+            }
             listItem.add(new Data_Ad(idx, deviceID, ad_type, ad_name, ad_sector, ad_img, ad_sex, ad_pay, ad_payvalue, ad_adress1, ad_adress2, ad_location, user_sex, user_name, user_age));
         }
 
@@ -161,6 +191,7 @@ public class Tab_1 extends Activity
 
                 //  view 에서 얻어 초기화
                 holder.View_ad_type = (LinearLayout) convertView.findViewById(R.id.ad_adtype);
+                holder.View_ad_type_margin = (LinearLayout) convertView.findViewById(R.id.ad_adtype_margin);
                 holder.View_ad_img = (ImageView) convertView.findViewById(R.id.ad_adimg);
                 holder.View_ad_title = (TextView) convertView.findViewById(R.id.ad_adtitle);
                 holder.View_ad_nameandage = (TextView) convertView.findViewById(R.id.ad_adnicknameandage);
@@ -171,6 +202,7 @@ public class Tab_1 extends Activity
                 holder.View_ad_adress1 = (TextView) convertView.findViewById(R.id.ad_adadress1);
                 holder.View_ad_adress2 = (TextView) convertView.findViewById(R.id.ad_adadress2);
                 holder.View_ad_loaction = (TextView) convertView.findViewById(R.id.ad_adlocation);
+                holder.View_ad_location_panel = (LinearLayout) convertView.findViewById(R.id.ad_adlocation_panel);
 
 
                 convertView.setTag(holder);
@@ -182,6 +214,115 @@ public class Tab_1 extends Activity
 
             if(data != null)
             {
+                // 프리미엄 뱃지
+                if(data.GET_ad_type().toString().equals("premium"))
+                {
+                    holder.View_ad_type.setVisibility(View.VISIBLE);
+                    holder.View_ad_type_margin.setVisibility(View.GONE);
+                }
+                else
+                {
+                    holder.View_ad_type_margin.setVisibility(View.VISIBLE);
+                    holder.View_ad_type.setVisibility(View.GONE);
+                }
+                // 프리미엄 뱃지 END
+
+                // 광고 이미지 뷰어
+                if(data.GET_ad_img().toString().equals("none"))
+                {
+                    Glide.with(convertView.getContext()).load(R.drawable.default_companyimg).dontAnimate().centerCrop().diskCacheStrategy(DiskCacheStrategy.RESULT).bitmapTransform(new CropCircleTransformation(convertView.getContext())).thumbnail(0.1f).into(holder.View_ad_img);
+
+                }
+                else
+                {
+                    Glide.with(convertView.getContext()).load(data.GET_ad_img()).dontAnimate().centerCrop().diskCacheStrategy(DiskCacheStrategy.RESULT).bitmapTransform(new CropCircleTransformation(convertView.getContext())).thumbnail(0.1f).into(holder.View_ad_img);
+                }
+
+                /*---광고 이미지 클릭 리스너 ---*/
+                holder.View_ad_img.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        if(data.GET_ad_img().toString().equals("none"))
+                        {
+                            Toast.makeText(Main.MainContext,"업체 이미지가 없습니다.",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            ((Main) Main.MainContext).ImageViewer(data.GET_ad_img());
+                        }
+                    }
+                });
+                // 광고 이미지 뷰어 END
+
+                // 광고 타이틀 텍스트
+                holder.View_ad_title.setText(data.GET_ad_name());
+                // 광고 타이틀 텍스트 END
+
+
+                // 광고 작성자 성별 색, 닉네임 & 나이
+                if(data.GET_user_sex().toString().equals("여자"))
+                {
+                    holder.View_ad_nameandage.setTextColor(convertView.getResources().getColor(R.color.girl));
+                }
+                else
+                {
+                    holder.View_ad_nameandage.setTextColor(convertView.getResources().getColor(R.color.man));
+                }
+
+                holder.View_ad_nameandage.setText(data.GET_user_name()+" ("+data.GET_user_age()+"세)");
+                // 광고 작성자 성별 색, 닉네임 & 나이 END
+
+                // 광고 업종
+                holder.View_ad_adsector.setText(data.GET_ad_sector());
+                // 광고 업종 END
+
+                //광고 구하는 성별
+                holder.View_ad_sex.setText(data.GET_ad_sex());
+                //광고 구하는 성별 END
+
+                //급여 타입
+                holder.View_ad_pay.setText(data.GET_ad_pay());
+                //급여 타입 END
+
+                //급여 금액
+                holder.View_ad_payvalue.setText(data.GET_ad_payvalue());
+                //급여 금액 END
+
+                // 시도
+                holder.View_ad_adress1.setText(data.GET_ad_adress1());
+                // 시도 END
+
+                // 군구
+                holder.View_ad_adress2.setText(data.GET_ad_adress2());
+                // 군구 END
+
+                //거리
+                if(data.GET_ad_type().toString().equals("premium"))
+                {
+                    holder.View_ad_loaction.setText(data.GET_ad_location() + "km");
+                    Tamp_location = Integer.parseInt(data.GET_ad_location().toString());
+                    if (Tamp_location < 30)
+                    {
+                        holder.View_ad_loaction.setTextColor(convertView.getResources().getColor(R.color.km10));
+                    }
+                    else
+                    {
+                        if (Tamp_location < 60)
+                        {
+                            holder.View_ad_loaction.setTextColor(convertView.getResources().getColor(R.color.km50));
+                        }
+                        else
+                        {
+                            holder.View_ad_loaction.setTextColor(convertView.getResources().getColor(R.color.km100));
+                        }
+                    }
+                }
+                else
+                {
+                    holder.View_ad_location_panel.setVisibility(View.GONE);
+                }
 
             }
 
@@ -193,6 +334,7 @@ public class Tab_1 extends Activity
         public class ViewHolder
         {
             LinearLayout    View_ad_type;
+            LinearLayout    View_ad_type_margin;
             ImageView       View_ad_img;
             TextView        View_ad_title;
             TextView        View_ad_nameandage;
@@ -203,6 +345,7 @@ public class Tab_1 extends Activity
             TextView        View_ad_adress1;
             TextView        View_ad_adress2;
             TextView        View_ad_loaction;
+            LinearLayout    View_ad_location_panel;
 
 
 
@@ -213,9 +356,9 @@ public class Tab_1 extends Activity
     //---------------------------------------------------------- 토크 리스트 만들기--------------------------------------//
     private void Make_Talk()
     {
-        if(listItem.size()>0)
+        if(listItem.size() == 0)
         {
-          //  return;
+            return;
         }
 
         list = (ListView) in_layout.findViewById(R.id.list_tab1);  // 리스트 레이아웃 부분 설정
@@ -238,12 +381,17 @@ public class Tab_1 extends Activity
                 if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && LastTalkVisibleFlag)
                 {
 
+                    Toast.makeText(Main.MainContext,"바닥입니다.",Toast.LENGTH_SHORT).show();
                     //TODO 화면이 바닦에 닿을때 처리
                 }
             }
 
         });
     }
+
+
+
+
 
 
 
