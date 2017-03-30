@@ -255,11 +255,17 @@ public class Main extends AppCompatActivity {
 
 
     // 업체 상세보기
-    public void company_detail(String value)
+    public void company_detail(String adidx, String tagetidx, String adtype, String sex, String nickname, String age, String loaction)
     {
 
         Intent intent = new Intent(this, ReadAds_Activity.class);
-        intent.putExtra("taget_idx",value);
+        intent.putExtra("ad_idx",adidx);
+        intent.putExtra("ad_type",tagetidx);
+        intent.putExtra("taget_idx",adtype);
+        intent.putExtra("taget_sex",sex);
+        intent.putExtra("taget_nickname",nickname);
+        intent.putExtra("taget_age",age);
+        intent.putExtra("taget_loaction",loaction);
 
         startActivity(intent);
 
@@ -269,7 +275,6 @@ public class Main extends AppCompatActivity {
     public void sand_massage_company(String tagetidx, String adtype, String sex, String nickname, String age, String loaction)
     {
         Intent intent = new Intent(this, Popup_letter.class);
-        intent.putExtra("sand_type","usersand");
         intent.putExtra("ad_type",adtype);
         intent.putExtra("taget_idx",tagetidx);
         intent.putExtra("taget_sex",sex);

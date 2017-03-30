@@ -28,6 +28,7 @@ public class AppInfo
 
     //MY GCM
     public static String MY_PUSHID;   // 푸시 아이디
+    public static String MY_TYPE;     // 계정 타입 (구직자, 업체)
 
     // 내 위치 정보(로그인시 한번만 기록됨)
     public static  boolean GPS_state = false;   // GPS 상태

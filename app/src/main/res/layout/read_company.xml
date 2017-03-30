@@ -83,7 +83,7 @@
                         android:gravity="center">
 
                         <ImageView
-                            android:id="@+id/write_mainpicture"
+                            android:id="@+id/company_detail_mainpicture"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:src="@drawable/default_companyimg"/>
@@ -107,6 +107,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/company_detail_companyname"
                             android:paddingRight="30dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -143,6 +144,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/company_detail_sector"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="15dp"
@@ -178,6 +180,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/company_detail_adress"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="15dp"
@@ -218,6 +221,7 @@
                             android:layout_marginBottom="15dp"
                             android:gravity="center">
                         <TextView
+                            android:id="@+id/company_detail_payvalue"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center|bottom"
@@ -236,6 +240,7 @@
                             android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/company_detail_pay"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center|bottom"
@@ -276,7 +281,9 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="15dp"
                             android:gravity="center">
+
                             <TextView
+                                android:id="@+id/company_detail_ageminmax"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center|bottom"
@@ -295,6 +302,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/company_detail_sex"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center|bottom"
@@ -367,6 +375,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/company_detail_option1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
@@ -384,6 +393,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/company_detail_option2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
@@ -401,6 +411,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/company_detail_option3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
@@ -429,6 +440,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/company_detail_option4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
@@ -446,13 +458,13 @@
 
 
                                 <TextView
+                                    android:id="@+id/company_detail_option5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
                                     android:text="파트타임"
                                     android:textColor="@color/option_on"
-                                    android:textSize="17sp"
-                                    android:id="@+id/textView" />
+                                    android:textSize="17sp"/>
 
                             </LinearLayout>
 
@@ -464,6 +476,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/company_detail_option6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
@@ -492,6 +505,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/company_detail_option7"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
@@ -509,12 +523,12 @@
 
 
                                 <TextView
-                                    android:id="@+id/read_company_option_8"
+                                    android:id="@+id/company_detail_option8"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
                                     android:text="성형지원"
-                                    android:textColor="@color/option_off"
+                                    android:textColor="@color/option_on"
                                     android:textSize="17sp"/>
 
                             </LinearLayout>
@@ -527,6 +541,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/company_detail_option9"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
@@ -589,6 +604,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/company_detail_content"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="안녕하세요 가게에요~~"
@@ -629,6 +645,7 @@
 
 
                     <LinearLayout
+                        android:onClick="company_detail_call"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -653,6 +670,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:onClick="company_detail_sandlatter"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

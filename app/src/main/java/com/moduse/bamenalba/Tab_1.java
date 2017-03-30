@@ -104,62 +104,63 @@ public class Tab_1 extends Activity
 
     public void Tamps()
     {
+        AppInfo.MY_TYPE = "user";
         AppInfo.MY_LOGINID = "345345345345";
 
-        String idx = "1";
-        String adidx = "4576456345thfghfg";
-        String deviceID = "12412412";
-        String ad_type = "premium";
-        String ad_name = "가락동1번지";
-        String ad_sector = "노래방";
-        String ad_img = "none";
-        String ad_sex = "남자";
-        String ad_pay = "일급";
-        String ad_payvalue = "500,000";
-        String ad_adress1 = "부산";
-        String ad_adress2 = "달동";
-        String ad_location = "10";
-        String user_sex = "남자";
-        String user_name = "김실장";
-        String user_age = "33";
+        String idx           = "1";
+        String adidx         = "4576456345thfghfg";
+        String deviceID      = "12412412";
+        String ad_type       = "premium";
+        String ad_name       = "가락동1번지";
+        String ad_sector     = "노래방";
+        String ad_img        = "none";
+        String ad_sex        = "남자";
+        String ad_pay        = "일급";
+        String ad_payvalue   = "500,000";
+        String ad_adress1    = "부산";
+        String ad_adress2    = "달동";
+        String ad_location   = "10";
+        String user_sex      = "남자";
+        String user_name     = "김실장";
+        String user_age      = "33";
 
         listItem.add(new Data_Ad(idx, adidx, deviceID, ad_type, ad_name, ad_sector, ad_img, ad_sex, ad_pay, ad_payvalue, ad_adress1, ad_adress2, ad_location, user_sex, user_name, user_age));
 
-         idx = "2";
-         adidx = "657567567567567567";
-         deviceID = "352722070234532";
-         ad_type = "none";
-         ad_name = "황금동2번지";
-         ad_sector = "룸사롱/주점";
-         ad_img = "http://img.gqkorea.co.kr/gq/2016/06/style_5768dfc869514-818x1024-1466491052.jpg";
-         ad_sex = "여자";
-         ad_pay = "일급";
-         ad_payvalue = "1,000,000";
-         ad_adress1 = "광주";
-         ad_adress2 = "광산구";
-         ad_location = "56";
-         user_sex = "여자";
-         user_name = "김마담";
-         user_age = "42";
+         idx             = "2";
+         adidx           = "657567567567567567";
+         deviceID        = "352722070234532";
+         ad_type         = "none";
+         ad_name         = "황금동2번지";
+         ad_sector       = "룸사롱/주점";
+         ad_img          = "http://nakk20.raonnet.com/profileimg/sample_119.png";
+         ad_sex          = "여자";
+         ad_pay          = "일급";
+         ad_payvalue     = "1,000,000";
+         ad_adress1      = "광주";
+         ad_adress2      = "광산구";
+         ad_location     = "56";
+         user_sex        = "여자";
+         user_name       = "김마담";
+         user_age        = "42";
 
         listItem.add(new Data_Ad(idx, adidx, deviceID, ad_type, ad_name, ad_sector, ad_img, ad_sex, ad_pay, ad_payvalue, ad_adress1, ad_adress2, ad_location, user_sex, user_name, user_age));
 
-        idx = "3";
-        adidx = "12156546567";
-        deviceID = "456456";
-        ad_type = "premium";
-        ad_name = "황금동2번지";
-        ad_sector = "가라오케";
-        ad_img = "http://blogfiles5.naver.net/20131222_114/rhdwbsnla1_1387699653947pnCy5_JPEG/%3F%3F%3F%3F%3F%3F9.jpg";
-        ad_sex = "여자";
-        ad_pay = "주급";
-        ad_payvalue = "500,000";
-        ad_adress1 = "제주";
-        ad_adress2 = "제주시";
-        ad_location = "456";
-        user_sex = "남자";
-        user_name = "미미짱";
-        user_age = "66";
+        idx              = "3";
+        adidx            = "12156546567";
+        deviceID         = "456456";
+        ad_type          = "premium";
+        ad_name          = "황금동2번지";
+        ad_sector        = "가라오케";
+        ad_img           = "http://nakk20.raonnet.com/profileimg/sample_110.png";
+        ad_sex           = "여자";
+        ad_pay           = "주급";
+        ad_payvalue      = "500,000";
+        ad_adress1       = "제주";
+        ad_adress2       = "제주시";
+        ad_location      = "456";
+        user_sex         = "남자";
+        user_name        = "미미짱";
+        user_age         = "66";
 
         listItem.add(new Data_Ad(idx, adidx, deviceID, ad_type, ad_name, ad_sector, ad_img, ad_sex, ad_pay, ad_payvalue, ad_adress1, ad_adress2, ad_location, user_sex, user_name, user_age));
 
@@ -378,7 +379,7 @@ public class Tab_1 extends Activity
                     public void onClick(View v)
                     {
                         // 광고글 식별 아이디로 Intent
-                        ((Main) Main.MainContext).company_detail(data.GET_adidx());
+                        ((Main) Main.MainContext).company_detail(data.GET_adidx(),data.GET_deviceID(), data.GET_ad_type(), data.GET_ad_sex(), data.GET_user_name(), data.GET_user_age(), data.GET_ad_location());
                     }
                 });
                 // 업체 상세 보기 클릭 END
@@ -388,10 +389,19 @@ public class Tab_1 extends Activity
                     @Override
                     public void onClick(View v)
                     {
-                        // 광고글 작성자 식별 아이디로 Intent
-                        ((Main) Main.MainContext).sand_massage_company(data.GET_deviceID(), data.GET_ad_type() , data.GET_ad_sex(), data.GET_user_name(), data.GET_user_age(), data.GET_ad_location());
+                        if(AppInfo.MY_TYPE.toString().equals("user"))
+                        {
+                            // 광고글 작성자 식별 아이디로 Intent
+                            ((Main) Main.MainContext).sand_massage_company(data.GET_deviceID(), data.GET_ad_type(), data.GET_ad_sex(), data.GET_user_name(), data.GET_user_age(), data.GET_ad_location());
+                        }
+                        else
+                        {
+                            Toast.makeText(Main.MainContext,"업체 쪽지는 구직자만 보낼 수 있습니다.",Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
+                // 업체 쪽지보내기 END
+
 
             }
 

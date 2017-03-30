@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,9 +25,12 @@ public class Popup_letter extends Activity
     TextView     my_point;
     TextView     my_send_text;
 
+    EditText latter_edit;
+
+    //------------------------------------------//
+
     String Ad_Type             = null;
 
-    String Sand_Type           = null;
     String Sand_AdIdx          = null;
     String Sand_Sex             = null;
     String Sand_NickName       = null;
@@ -35,6 +39,9 @@ public class Popup_letter extends Activity
 
     //임시 거리
     int Tamp_location;
+
+    //-----------보내는 값 -----------//
+
 
 
     @Override
@@ -64,9 +71,7 @@ public class Popup_letter extends Activity
 
         // 인텐트
         Intent intent = getIntent();
-        Sand_Type = intent.getStringExtra("sand_type");
         Ad_Type = intent.getStringExtra("ad_type");
-        Sand_Type = intent.getStringExtra("ad_type");
         Sand_AdIdx = intent.getStringExtra("taget_idx");
         Sand_Sex = intent.getStringExtra("taget_sex");
         Sand_NickName = intent.getStringExtra("taget_nickname");
@@ -87,8 +92,10 @@ public class Popup_letter extends Activity
         my_point = (TextView) findViewById(R.id.pop_latter_point);
         my_send_text = (TextView) findViewById(R.id.pop_latter_sand_text);
 
+        latter_edit = (EditText) findViewById(R.id.pop_latter_edit);
+
         // 유저가 쪽지 보낼때는 포인트 창 끄기
-        if(Sand_Type.toString().equals("usersand"))
+        if(AppInfo.MY_TYPE.toString().equals("user"))
         {
             point_panel.setVisibility(View.GONE);
             my_send_text.setText("보내기");
@@ -155,6 +162,8 @@ public class Popup_letter extends Activity
     // 쪽지 보내기
     public void click_letter_send(View v)
     {
+        latter_edit.getText();
+        if(!latter_edit.getText().toString().equals(null) || !latter_edit.getText().toString().equals(""))
         Toast.makeText(this.getApplicationContext(),"보냈슴~~",Toast.LENGTH_SHORT).show();
         finish();
     }
