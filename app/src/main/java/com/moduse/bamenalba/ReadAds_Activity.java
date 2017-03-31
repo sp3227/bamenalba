@@ -31,9 +31,7 @@ public class ReadAds_Activity extends AppCompatActivity {
     TextView company_sex;              // 성별
 
     // 가게 옵션들
-    TextView option_1;TextView option_2;TextView option_3;
-    TextView option_4;TextView option_5;TextView option_6;
-    TextView option_7;TextView option_8;TextView option_9;
+    TextView[] options;
 
     TextView company_content;   // 소개 내용
 
@@ -52,14 +50,16 @@ public class ReadAds_Activity extends AppCompatActivity {
     //작성글 정보
     String adidx = null;
 
-    String main_picture_url = null;
-    String company_name_value = null;
-    String company_sector_value = null;
-    String company_adress_value = null;
-    String company_payvalue_value = null;
-    String company_pay_value = null;
-    String company_ageminmax_value = null;
-    String company_sex_value = null;
+    String main_picture_url = "http://nakk20.raonnet.com/profileimg/sample_119.png";
+    String company_name_value = "나나나";
+    String company_sector_value = "노래방";
+    String company_adress_value = "광주광역시 / 남구";
+    String company_payvalue_value = "300,000";
+    String company_pay_value = "주급";
+    String company_ageminmax_value = "20~30";
+    String company_sex_value = "여자";
+
+    Boolean[] option_values;
 
     String company_call_value = "01023232323";
 
@@ -93,35 +93,105 @@ public class ReadAds_Activity extends AppCompatActivity {
         company_ageminmax = (TextView) findViewById(R.id.company_detail_ageminmax);
         company_sex = (TextView) findViewById(R.id.company_detail_sex);
 
-        option_1 = (TextView) findViewById(R.id.company_detail_option1);
-        option_2 = (TextView) findViewById(R.id.company_detail_option2);
-        option_3 = (TextView) findViewById(R.id.company_detail_option3);
-        option_4 = (TextView) findViewById(R.id.company_detail_option4);
-        option_5 = (TextView) findViewById(R.id.company_detail_option5);
-        option_6 = (TextView) findViewById(R.id.company_detail_option6);
-        option_7 = (TextView) findViewById(R.id.company_detail_option7);
-        option_8 = (TextView) findViewById(R.id.company_detail_option8);
-        option_9 = (TextView) findViewById(R.id.company_detail_option9);
+
+        option_values = new Boolean[]{false, false, false, false, false, false, false, true, true};
+
+
+        options = new TextView[9];
+
+        options[0] = (TextView) findViewById(R.id.company_detail_option1);
+        options[1] = (TextView) findViewById(R.id.company_detail_option2);
+        options[2] = (TextView) findViewById(R.id.company_detail_option3);
+        options[3] = (TextView) findViewById(R.id.company_detail_option4);
+        options[4] = (TextView) findViewById(R.id.company_detail_option5);
+        options[5] = (TextView) findViewById(R.id.company_detail_option6);
+        options[6] = (TextView) findViewById(R.id.company_detail_option7);
+        options[7] = (TextView) findViewById(R.id.company_detail_option8);
+        options[8] = (TextView) findViewById(R.id.company_detail_option9);
+
 
         company_content = (TextView) findViewById(R.id.company_detail_content);
 
 
-
-
-
-
-        Glide.with(this).load(R.drawable.default_companyimg).centerCrop().bitmapTransform(new CropCircleTransformation(this)).into(main_picture);
-
-        // 텍스트 가운데 줄긋기
-        option_1.setPaintFlags(option_1.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
-
         //임시 확인용
+
         Toast.makeText(getApplicationContext(),"광고식별코드 : "+adidx,Toast.LENGTH_SHORT).show();
+
+        init_layout();  // 임시
 
         StopShow();
     }
 
+    //------------------------------------- 레이아웃 연결 통신후 -------------------------------------//
+    public void init_layout()
+    {
+        // 업체 로고 연결
 
+        if(main_picture_url.toString().equals("none") || main_picture_url.toString().equals(null))
+        {
+            Glide.with(this).load(R.drawable.default_companyimg).centerCrop().bitmapTransform(new CropCircleTransformation(this)).into(main_picture);
+        }
+        else
+        {
+            Glide.with(this).load(main_picture_url).centerCrop().bitmapTransform(new CropCircleTransformation(this)).into(main_picture);
+
+            main_picture.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    ((Main) Main.MainContext).ImageViewer(main_picture_url, nickname, age);
+                }
+            });
+        }
+
+
+        //업체 이름
+        company_name.setText(company_name_value);
+
+        //업종
+        company_sector.setText(company_sector_value);
+
+        //주소
+        company_adress.setText(company_adress_value);
+
+        //페이 금액
+        company_payvalue.setText(company_payvalue_value);
+
+        //페이 종류
+        company_pay.setText(company_pay_value);
+
+        //나이 최대 최소
+        company_ageminmax.setText(company_ageminmax_value);
+
+        //요구 성별
+        company_sex.setText(company_sex_value);
+
+        if(company_sex_value.toString().equals("여자"))
+        {
+            company_sex.setTextColor(getResources().getColor(R.color.girl));
+        }
+        else
+        {
+            company_sex.setTextColor(getResources().getColor(R.color.man));
+        }
+
+        //옵션
+        for(int i=0; i< option_values.length; i++)
+        {
+            if(option_values[i] == true)
+            {
+                options[i].setTextColor(getResources().getColor(R.color.option_on));
+            }
+            else
+            {
+                options[i].setTextColor(getResources().getColor(R.color.option_off));
+                options[i].setPaintFlags(options[i].getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+            }
+        }
+
+
+    }
 
 
     //------------------------------------- 버튼 설정 -------------------------------------//

@@ -276,7 +276,7 @@ public class Tab_1 extends Activity
                         }
                         else
                         {
-                            ((Main) Main.MainContext).ImageViewer(data.GET_ad_img());
+                            ((Main) Main.MainContext).ImageViewer(data.GET_ad_img(), data.GET_user_name(), data.GET_user_age());
                         }
                     }
                 });

@@ -293,11 +293,13 @@ public class Main extends AppCompatActivity {
 
 
 // 이미지 뷰어
-    public void ImageViewer(String url)
+    public void ImageViewer(String url, String nickname, String age)
     {
         Intent intent = new Intent(Main.MainContext, ImageView_Activity.class);
 
         intent.putExtra("adimg_url",url);
+        intent.putExtra("user_nickname",nickname);
+        intent.putExtra("user_age",age);
 
         startActivity(intent);
     }
