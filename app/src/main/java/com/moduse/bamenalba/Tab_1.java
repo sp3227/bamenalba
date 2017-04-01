@@ -102,9 +102,10 @@ public class Tab_1 extends Activity
         // 리스트 아이템 지우기
     }
 
+    //------------------------------------------------------- 임시 보기용------------------------------------------//
     public void Tamps()
     {
-        AppInfo.MY_TYPE = "user";
+        AppInfo.MY_TYPE = "company";
         AppInfo.MY_LOGINID = "345345345345";
 
         String idx           = "1";
@@ -392,7 +393,7 @@ public class Tab_1 extends Activity
                         if(AppInfo.MY_TYPE.toString().equals("user"))
                         {
                             // 광고글 작성자 식별 아이디로 Intent
-                            ((Main) Main.MainContext).sand_massage_company(data.GET_deviceID(), data.GET_ad_type(), data.GET_ad_sex(), data.GET_user_name(), data.GET_user_age(), data.GET_ad_location());
+                            ((Main) Main.MainContext).sand_massage(data.GET_deviceID(), data.GET_ad_type(), data.GET_ad_sex(), data.GET_user_name(), data.GET_user_age(), data.GET_ad_location());
                         }
                         else
                         {

@@ -50,16 +50,18 @@ public class ReadAds_Activity extends AppCompatActivity {
     //작성글 정보
     String adidx = null;
 
-    String main_picture_url = "http://nakk20.raonnet.com/profileimg/sample_119.png";
+    String main_picture_url = "http://nakk20.raonnet.com/profileimg/sample_119.png";   //임시로 넣어놈
     String company_name_value = "나나나";
     String company_sector_value = "노래방";
-    String company_adress_value = "광주광역시 / 남구";
+    String company_adress_value = "광주 / 남구";
     String company_payvalue_value = "300,000";
     String company_pay_value = "주급";
     String company_ageminmax_value = "20~30";
     String company_sex_value = "여자";
 
     Boolean[] option_values;
+
+    String company_content_value = "가게 소개개개개~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 
     String company_call_value = "01023232323";
 
@@ -162,7 +164,7 @@ public class ReadAds_Activity extends AppCompatActivity {
         company_pay.setText(company_pay_value);
 
         //나이 최대 최소
-        company_ageminmax.setText(company_ageminmax_value);
+        company_ageminmax.setText(company_ageminmax_value+"세");
 
         //요구 성별
         company_sex.setText(company_sex_value);
@@ -189,6 +191,9 @@ public class ReadAds_Activity extends AppCompatActivity {
                 options[i].setPaintFlags(options[i].getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
             }
         }
+
+        //가게 소개
+        company_content.setText(company_content_value);
 
 
     }

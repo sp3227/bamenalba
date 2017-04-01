@@ -60,7 +60,7 @@
                         android:gravity="center">
 
                         <ImageView
-                            android:id="@+id/write_mainpicture"
+                            android:id="@+id/tab3_write_mainpicture"
                             android:layout_width="100dp"
                             android:layout_height="100dp"/>
 
@@ -86,6 +86,7 @@
                             android:textStyle="bold" />
 
                         <EditText
+                            android:id="@+id/tab3_write_edit_company_name"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="15dp"
@@ -114,6 +115,7 @@
 
                     <!-- 업종  -->
                     <LinearLayout
+                        android:onClick="tab3_click_select_sector"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginLeft="15dp"
@@ -136,6 +138,7 @@
                             android:layout_marginBottom="15dp">
 
                             <TextView
+                                android:id="@+id/tab3_write_text_company_sector"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
@@ -184,6 +187,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:onClick="tab3_click_select_adress1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
@@ -206,6 +210,7 @@
                                 android:layout_marginRight="5dp">
 
                                 <TextView
+                                    android:id="@+id/tab3_write_text_company_adress1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
@@ -250,6 +255,7 @@
 
 
                         <LinearLayout
+                            android:onClick="tab3_click_select_adress2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
@@ -271,6 +277,7 @@
                                 android:layout_marginBottom="15dp">
 
                                 <TextView
+                                    android:id="@+id/tab3_write_text_company_adress2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
@@ -343,6 +350,7 @@
                                 android:layout_marginRight="5dp">
 
                                 <EditText
+                                    android:id="@+id/tab3_write_edit_company_payvalue"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:background="@android:color/transparent"
@@ -356,8 +364,7 @@
                                     android:textSize="@dimen/edit_size"
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentLeft="true"
-                                    android:layout_alignParentStart="true"
-                                    android:id="@+id/editText" />
+                                    android:layout_alignParentStart="true" />
 
 
                             </RelativeLayout>
@@ -378,6 +385,7 @@
 
 
                         <LinearLayout
+                            android:onClick="tab3_click_select_pay"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
@@ -399,6 +407,7 @@
                                 android:layout_marginBottom="15dp">
 
                                 <TextView
+                                    android:id="@+id/tab3_write_text_company_pay"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
@@ -471,6 +480,7 @@
                                 android:layout_marginRight="5dp">
 
                                 <EditText
+                                    android:id="@+id/tab3_write_edit_company_ageminmax"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_marginRight="5dp"
@@ -503,6 +513,7 @@
 
 
                         <LinearLayout
+                            android:onClick="tab3_click_select_sex"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
@@ -524,6 +535,7 @@
                                 android:layout_marginBottom="15dp">
 
                                 <TextView
+                                    android:id="@+id/tab3_write_edit_company_sex"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
@@ -584,6 +596,7 @@
                             android:textStyle="bold" />
 
                         <EditText
+                            android:id="@+id/tab3_write_edit_company_phonenumber"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="15dp"
@@ -668,6 +681,7 @@
                                 android:layout_weight="1">
 
                                 <CheckBox
+                                    android:id="@+id/tab3_write_option1"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/chackbox_2"
@@ -691,6 +705,7 @@
                                 android:layout_weight="1">
 
                                 <CheckBox
+                                    android:id="@+id/tab3_write_option2"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/chackbox_2"
@@ -714,6 +729,7 @@
                                 android:layout_weight="1">
 
                                 <CheckBox
+                                    android:id="@+id/tab3_write_option3"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/chackbox_2"
@@ -748,6 +764,7 @@
                                 android:layout_weight="1">
 
                                 <CheckBox
+                                    android:id="@+id/tab3_write_option4"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/chackbox_2"
@@ -771,6 +788,7 @@
                                 android:layout_weight="1">
 
                                 <CheckBox
+                                    android:id="@+id/tab3_write_option5"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/chackbox_2"
@@ -794,6 +812,7 @@
                                 android:layout_weight="1">
 
                                 <CheckBox
+                                    android:id="@+id/tab3_write_option6"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/chackbox_2"
@@ -828,6 +847,7 @@
                                 android:layout_weight="1">
 
                                 <CheckBox
+                                    android:id="@+id/tab3_write_option7"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/chackbox_2"
@@ -851,6 +871,7 @@
                                 android:layout_weight="1">
 
                                 <CheckBox
+                                    android:id="@+id/tab3_write_option8"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/chackbox_2"
@@ -874,6 +895,7 @@
                                 android:layout_weight="1">
 
                                 <CheckBox
+                                    android:id="@+id/tab3_write_option9"
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/chackbox_2"
@@ -932,6 +954,7 @@
                         android:background="@drawable/gray_box">
 
                         <EditText
+                            android:id="@+id/tab3_write_edit_company_content"
                             android:padding="7dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -990,6 +1013,7 @@
 
                     <!-- 옵션  -->
                     <LinearLayout
+                        android:onClick="tab3_click_select_adtype"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:orientation="horizontal">
@@ -1010,6 +1034,7 @@
                             android:layout_marginBottom="15dp">
 
                             <TextView
+                                android:id="@+id/tab3_write_text_ad_type"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
@@ -1048,6 +1073,7 @@
 
                     <!-- 옵션  -->
                     <LinearLayout
+                        android:onClick="tab3_click_select_addate"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:orientation="horizontal">
@@ -1068,6 +1094,7 @@
                             android:layout_marginBottom="15dp">
 
                             <TextView
+                                android:id="@+id/tab3_write_text_ad_date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
@@ -1160,6 +1187,7 @@
                             android:textColor="#f1724d" />
 
                         <TextView
+                            android:id="@+id/tab3_write_text_ad_usepoint"
                             android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1195,6 +1223,7 @@
                             android:textColor="@color/backgroundcolor" />
 
                         <TextView
+                            android:id="@+id/tab3_write_text_ad_mypoint"
                             android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1209,6 +1238,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:onClick="tab3_click_submit"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"

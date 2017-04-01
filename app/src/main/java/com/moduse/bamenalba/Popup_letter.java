@@ -122,7 +122,7 @@ public class Popup_letter extends Activity
         }
 
         // 거리
-        if(Ad_Type.toString().equals("premium"))
+        if(Ad_Type.toString().equals("premium") || Ad_Type.toString().equals("company"))
         {
             Tamp_location = Integer.parseInt(Sand_Loaction);
 

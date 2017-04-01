@@ -20,6 +20,7 @@
 
             <!-- 시도 -->
             <LinearLayout
+                android:onClick="tab2_click_adress1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -30,10 +31,11 @@
                     android:src="@drawable/icon_arrow2" />
 
                 <TextView
+                    android:id="@+id/tab2_text_adress1"
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="세종특별시"
+                    android:text="전체"
                     android:gravity="center"
                     android:textSize="13sp"
                     android:textColor="#ffffff"/>
@@ -42,6 +44,7 @@
 
             <!-- 군구 -->
             <LinearLayout
+                android:onClick="tab2_click_adress2"
                 android:layout_marginLeft="13dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -53,10 +56,11 @@
                     android:src="@drawable/icon_arrow2" />
 
                 <TextView
+                    android:id="@+id/tab2_text_adress2"
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="강남구"
+                    android:text="전체"
                     android:gravity="center"
                     android:textSize="13sp"
                     android:textColor="#ffffff"/>
@@ -76,6 +80,7 @@
 
             <!-- 군구 -->
             <LinearLayout
+                android:onClick="tab2_click_joperloadtype"
                 android:layout_marginLeft="13dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -87,6 +92,7 @@
                     android:src="@drawable/icon_arrow2" />
 
                 <TextView
+                    android:id="@+id/tab2_text_joperloadtype"
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

@@ -20,9 +20,10 @@
 
             <!-- 프로필 이미지 -->
             <ImageView
+                android:id="@+id/joperlist_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ex_img" />
+                android:layout_height="55dp"
+                android:src="@drawable/default_icon_girl"/>
 
         </LinearLayout>
 
@@ -41,6 +42,7 @@
 
                 <!-- 닉네임 -->
                 <TextView
+                    android:id="@+id/joperlist_nickname"
                     android:layout_marginRight="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -49,6 +51,7 @@
 
                 <!-- 나이 -->
                 <TextView
+                    android:id="@+id/joperlist_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(23세)"
@@ -57,6 +60,7 @@
 
                 <!-- 키로수 -->
                 <TextView
+                    android:id="@+id/joperlist_loaction"
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -73,6 +77,7 @@
 
                 <!-- 한마디 -->
                 <TextView
+                    android:id="@+id/joperlist_ment"
                     android:layout_marginRight="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,6 +104,7 @@
 
                 <!-- 상세 보기 -->
                 <LinearLayout
+                    android:id="@+id/joperlist_btn_detail"
                     android:layout_width="43dp"
                     android:layout_height="43dp"
                     android:orientation="vertical"
@@ -122,6 +128,7 @@
 
                 <!-- 쪽지 보내기 -->
                 <LinearLayout
+                    android:id="@+id/joperlist_btn_sand_massage"
                     android:layout_marginLeft="5dp"
                     android:layout_width="43dp"
                     android:layout_height="43dp"

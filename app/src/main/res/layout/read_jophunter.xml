@@ -11,6 +11,7 @@
         android:background="@color/backgroundcolor">
 
         <TextView
+            android:id="@+id/joperlist_detail_info"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center|left"
@@ -24,6 +25,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:onClick="joperlist_detail_close"
                 android:layout_alignParentRight="true"
                 android:layout_width="50dp"
                 android:gravity="center"
@@ -83,7 +85,7 @@
                         android:gravity="center">
 
                         <ImageView
-                            android:id="@+id/write_mainpicture"
+                            android:id="@+id/joperlist_detail_mainpicture"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:src="@drawable/default_companyimg"/>
@@ -107,6 +109,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/joperlist_detail_company_name"
                             android:paddingRight="30dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -151,6 +154,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/joperlist_detail_company_age"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginBottom="15dp"
@@ -181,6 +185,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/joperlist_detail_company_sex"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginBottom="15dp"
@@ -188,8 +193,7 @@
                                 android:text="여성"
                                 android:textColor="@color/girl"
                                 android:textSize="17sp"
-                                android:textStyle="bold"
-                                android:id="@+id/textView2" />
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -247,6 +251,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/joperlist_detail_company_adress1"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginBottom="15dp"
@@ -278,6 +283,7 @@
                                 android:id="@+id/textView3" />
 
                             <TextView
+                                android:id="@+id/joperlist_detail_company_adress2"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginBottom="15dp"
@@ -336,6 +342,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/joperlist_detail_company_sector"
                             android:paddingRight="30dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -372,6 +379,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/joperlist_detail_company_ment"
                             android:paddingRight="30dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -417,6 +425,7 @@
             android:layout_height="50dp">
 
             <LinearLayout
+                android:onClick="joperlist_detail_btn_send_massage"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

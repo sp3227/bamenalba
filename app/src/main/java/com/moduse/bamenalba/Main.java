@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,20 +46,29 @@ public class Main extends AppCompatActivity {
     LayoutInflater Inflater;
     LinearLayout.LayoutParams layoutParams;
 
+    // 선택된 탭
+    int select_tabNum = 1;
+
     // 선택되는 군구 (변화)
     String[] select_address2 = null;
 
     // 다이얼로그 상수
-    final int Dialog_Search_address1      = 0;  // 시도
-    final int Dialog_Search_address2      = 1;  // 군구
-    final int Dialog_Search_adtpye        = 2;  // 광고 타입 (프리미엄, 일반)
-    final int Dialog_Search_adloadtpye   = 3;  // 정렬 (거리순, 전체)
+    final int Dialog_Search_address1           = 0;  // 시도
+    final int Dialog_Search_address2           = 1;  // 군구
+    final int Dialog_Search_adtpye             = 2;  // 광고 타입 (프리미엄, 일반)
+    final int Dialog_Search_adloadtpye        = 3;  // 정렬 (거리순, 등록순)
+    final int Dialog_Search_joperloadtpye     = 4;  // 정렬 (전체, 여자, 남자)
 
     // 탭1 상단 레이아웃
-    TextView search_adress1;
-    TextView search_adress2;
-    TextView search_adtype;
-    TextView search_adloadtype;
+    TextView tab1_search_adress1;
+    TextView tab1_search_adress2;
+    TextView tab1_search_adtype;
+    TextView tab1_search_adloadtype;
+
+    // 탭2 상단 레이아웃
+    TextView tab2_search_adress1;
+    TextView tab2_search_adress2;
+    TextView tab2_search_joperloadtype;
 
 
     @Override
@@ -95,13 +105,16 @@ public class Main extends AppCompatActivity {
         add_Linear.removeAllViews();
         add_Linear.addView(tab_1.in_layout,layoutParams);
 
-        // 레이아웃 연결
-        search_adress1 = (TextView) findViewById(R.id.tab1_text_adress1);
-        search_adress2 = (TextView) findViewById(R.id.tab1_text_adress2);
-        search_adtype = (TextView) findViewById(R.id.tab1_text_adtype);
-        search_adloadtype = (TextView) findViewById(R.id.tab1_text_adloadtype);
+        // 탭1 레이아웃 연결
+        tab1_search_adress1 = (TextView) findViewById(R.id.tab1_text_adress1);
+        tab1_search_adress2 = (TextView) findViewById(R.id.tab1_text_adress2);
+        tab1_search_adtype = (TextView) findViewById(R.id.tab1_text_adtype);
+        tab1_search_adloadtype = (TextView) findViewById(R.id.tab1_text_adloadtype);
 
+        // 임시
         tab_1.Tamps();
+
+        select_tabNum = 1;
     }
 
     public void Tab2_road()
@@ -111,6 +124,16 @@ public class Main extends AppCompatActivity {
         //레이아웃 인플레어
         add_Linear.removeAllViews();
         add_Linear.addView(tab_2.in_layout,layoutParams);
+
+        // 탭2 레이아웃 연결
+        tab2_search_adress1 = (TextView) findViewById(R.id.tab2_text_adress1);
+        tab2_search_adress2 = (TextView) findViewById(R.id.tab2_text_adress2);
+        tab2_search_joperloadtype = (TextView) findViewById(R.id.tab2_text_joperloadtype);
+
+        // 임시
+        tab_2.Tamps();
+
+        select_tabNum = 2;
     }
 
     public void Tab3_road()
@@ -128,6 +151,8 @@ public class Main extends AppCompatActivity {
 
         Glide.with(this).load(R.drawable.default_picture).centerCrop().bitmapTransform(new CropCircleTransformation(this)).into(main_picture);
 
+        select_tabNum = 3;
+
     }
 
     public void Tab4_road()
@@ -137,6 +162,8 @@ public class Main extends AppCompatActivity {
         //레이아웃 인플레어
         add_Linear.removeAllViews();
         add_Linear.addView(tab_4.in_layout,layoutParams);
+
+        select_tabNum = 4;
     }
 
     public void Tab5_road()
@@ -146,6 +173,8 @@ public class Main extends AppCompatActivity {
         //레이아웃 인플레어
         add_Linear.removeAllViews();
         add_Linear.addView(tab_5.in_layout,layoutParams);
+
+        select_tabNum = 5;
 
     }
 
@@ -216,6 +245,35 @@ public class Main extends AppCompatActivity {
         Tab5_road();
     }
 
+/*--------------------------------------------------------------------------공용 함수  ----------------------------------------   */
+
+    //업체로 쪽지 보내기
+    public void sand_massage(String tagetidx, String adtype, String sex, String nickname, String age, String loaction)
+    {
+        Intent intent = new Intent(this, Popup_letter.class);
+        intent.putExtra("ad_type",adtype);
+        intent.putExtra("taget_idx",tagetidx);
+        intent.putExtra("taget_sex",sex);
+        intent.putExtra("taget_nickname",nickname);
+        intent.putExtra("taget_age",age);
+        intent.putExtra("taget_loaction",loaction);
+
+        startActivity(intent);
+    }
+
+
+    // 이미지 뷰어
+    public void ImageViewer(String url, String nickname, String age)
+    {
+        Intent intent = new Intent(Main.MainContext, ImageView_Activity.class);
+
+        intent.putExtra("adimg_url",url);
+        intent.putExtra("user_nickname",nickname);
+        intent.putExtra("user_age",age);
+
+        startActivity(intent);
+    }
+
 
 
 /*--------------------------------------------------------------------------탭 1 함수  ----------------------------------------   */
@@ -257,24 +315,8 @@ public class Main extends AppCompatActivity {
     // 업체 상세보기
     public void company_detail(String adidx, String tagetidx, String adtype, String sex, String nickname, String age, String loaction)
     {
-
         Intent intent = new Intent(this, ReadAds_Activity.class);
         intent.putExtra("ad_idx",adidx);
-        intent.putExtra("ad_type",tagetidx);
-        intent.putExtra("taget_idx",adtype);
-        intent.putExtra("taget_sex",sex);
-        intent.putExtra("taget_nickname",nickname);
-        intent.putExtra("taget_age",age);
-        intent.putExtra("taget_loaction",loaction);
-
-        startActivity(intent);
-
-    }
-
-    //업체로 쪽지 보내기
-    public void sand_massage_company(String tagetidx, String adtype, String sex, String nickname, String age, String loaction)
-    {
-        Intent intent = new Intent(this, Popup_letter.class);
         intent.putExtra("ad_type",adtype);
         intent.putExtra("taget_idx",tagetidx);
         intent.putExtra("taget_sex",sex);
@@ -283,26 +325,68 @@ public class Main extends AppCompatActivity {
         intent.putExtra("taget_loaction",loaction);
 
         startActivity(intent);
+
     }
 
 
 
+/*--------------------------------------------------------------------------탭 2 함수  ----------------------------------------   */
 
-
-
-
-
-// 이미지 뷰어
-    public void ImageViewer(String url, String nickname, String age)
+    //클릭리스너
+    // 시도 검색
+    public void tab2_click_adress1(View v)
     {
-        Intent intent = new Intent(Main.MainContext, ImageView_Activity.class);
+        select_address2 = null;
+        showDialog(Dialog_Search_address1);
+    }
 
-        intent.putExtra("adimg_url",url);
-        intent.putExtra("user_nickname",nickname);
-        intent.putExtra("user_age",age);
+    // 군구 검색
+    public void tab2_click_adress2(View v)
+    {
+        if(select_address2 == null)
+        {
+            Toast.makeText(Main.MainContext,"시도를 먼저 선택해주세요.",Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            showDialog(Dialog_Search_address2);
+        }
+    }
+
+    // 검색 타입 (전체, 남자, 여자)
+    public void tab2_click_joperloadtype(View v)
+    {
+        showDialog(Dialog_Search_joperloadtpye);
+    }
+
+    // 구직자 상세보기
+    public void joper_detail(String deviceid, String sex, String nickname, String age, String loaction)
+    {
+
+        Intent intent = new Intent(this, Readjoper_Activity.class);
+        intent.putExtra("taget_idx",deviceid);
+        intent.putExtra("taget_sex",sex);
+        intent.putExtra("taget_nickname",nickname);
+        intent.putExtra("taget_age",age);
+        intent.putExtra("taget_loaction",loaction);
 
         startActivity(intent);
+
     }
+
+/*--------------------------------------------------------------------------탭 3 함수  ----------------------------------------   */
+
+    
+
+
+
+
+
+
+
+
+
+
 
     public Dialog onCreateDialog(int id)
     {
@@ -317,10 +401,17 @@ public class Main extends AppCompatActivity {
                         .setItems(item, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialogInterface, int i)
                             {
+                                if(select_tabNum == 1)
+                                {
+                                    tab1_search_adress1.setText(item[i].toString());
+                                }
+                                else
+                                {
+                                    tab2_search_adress1.setText(item[i].toString());
+                                }
 
-                                search_adress1.setText(item[i].toString());
-                              //  text_address_1.setText(item[i].toString());
-                              //  DATA_address_1 = item[i].toString();
+                                    //  text_address_1.setText(item[i].toString());
+                                    //  DATA_address_1 = item[i].toString();
 
                                  select_address(item[i].toString());
                             }
@@ -333,15 +424,21 @@ public class Main extends AppCompatActivity {
             }
             case Dialog_Search_address2: // 군구
             {
-                final CharSequence[] item = mergeArrays(getResources().getStringArray(R.array.all),select_address2);
+                final CharSequence[] item = mergeArrays(getResources().getStringArray(R.array.all), select_address2);
                 AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
 
                 builder.setTitle("세부 지역을 선택하세요.") // 제목 설정
                         .setItems(item, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialogInterface, int i)
                             {
-
-                                search_adress2.setText(item[i].toString());
+                                if(select_tabNum == 1)
+                                {
+                                    tab1_search_adress2.setText(item[i].toString());
+                                }
+                                else
+                                {
+                                    tab2_search_adress2.setText(item[i].toString());
+                                }
 
                             }
 
@@ -361,7 +458,7 @@ public class Main extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i)
                             {
 
-                                search_adtype.setText(item[i].toString());
+                                tab1_search_adtype.setText(item[i].toString());
 
                             }
 
@@ -380,9 +477,7 @@ public class Main extends AppCompatActivity {
                         .setItems(item, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialogInterface, int i)
                             {
-
-                                search_adloadtype.setText(item[i].toString());
-
+                                tab1_search_adloadtype.setText(item[i].toString());
                             }
 
                         });
@@ -390,6 +485,25 @@ public class Main extends AppCompatActivity {
 
                 return alert;
 
+            }
+            case Dialog_Search_joperloadtpye:
+            {
+                final CharSequence[] item = {"전체", "여자", "남자"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+
+                builder.setTitle("검색 성별을 선택하세요.") // 제목 설정
+                        .setItems(item, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+
+                                tab2_search_joperloadtype.setText(item[i].toString());
+
+                            }
+
+                        });
+                AlertDialog alert = builder.create();  //알림 객체 생성
+
+                return alert;
             }
         }
 
@@ -441,7 +555,15 @@ public class Main extends AppCompatActivity {
     public void select_address(String value)
     {
         select_address2 = null;
-        search_adress2.setText("전체");
+
+        if(select_tabNum == 1)
+        {
+            tab1_search_adress2.setText("전체");
+        }
+        else
+        {
+            tab2_search_adress2.setText("전체");
+        }
 
         if (value.toString().equals("전체"))
         {
