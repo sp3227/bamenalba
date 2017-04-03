@@ -535,7 +535,7 @@
                                 android:layout_marginBottom="15dp">
 
                                 <TextView
-                                    android:id="@+id/tab3_write_edit_company_sex"
+                                    android:id="@+id/tab3_write_text_company_sex"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
@@ -1023,7 +1023,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="15dp"
                             android:gravity="center|bottom"
-                            android:text="옵션"
+                            android:text="유형"
                             android:textColor="@color/textcolor"
                             android:textSize="@dimen/edit_size"
                             android:textStyle="bold" />
@@ -1040,7 +1040,8 @@
                                 android:layout_centerInParent="true"
                                 android:gravity="center|bottom"
                                 android:paddingRight="10dp"
-                                android:text="프리미엄"
+                                android:hint="선택"
+                                android:textColorHint="@color/hintcolor"
                                 android:textColor="@color/textcolor"
                                 android:textSize="@dimen/edit_size" />
 
@@ -1100,7 +1101,8 @@
                                 android:layout_centerInParent="true"
                                 android:gravity="center|bottom"
                                 android:paddingRight="10dp"
-                                android:text="30일"
+                                android:hint="선택"
+                                android:textColorHint="@color/hintcolor"
                                 android:textColor="@color/textcolor"
                                 android:textSize="@dimen/edit_size" />
 
@@ -1192,7 +1194,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="100,000"
+                            android:text="-"
                             android:textSize="32dp"
                             android:textColor="#f1724d"/>
 
