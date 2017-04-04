@@ -2,12 +2,20 @@ package com.moduse.bamenalba;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -19,6 +27,15 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
@@ -27,6 +44,8 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 public class Main extends AppCompatActivity {
 
+    // 프로그레스
+    ProgressDialog loading;
 
     // 탭관련 부분
     LinearLayout Background_tab1, Background_tab2, Background_tab3, Background_tab4, Background_tab5;
@@ -61,13 +80,14 @@ public class Main extends AppCompatActivity {
     final int Dialog_Search_adloadtpye        = 3;  // 정렬 (거리순, 등록순)
     final int Dialog_Search_joperloadtpye     = 4;  // 정렬 (전체, 여자, 남자)
 
-    final int Dialog_write_select_sector      = 5;
-    final int Dialog_write_select_adress1     = 6;
-    final int Dialog_write_select_adress2     = 7;
-    final int Dialog_write_select_paytype     = 8;
-    final int Dialog_write_select_sex          = 9;
-    final int Dialog_write_select_adtype      = 10;
-    final int Dialog_write_select_addate      = 11;
+    final int Dialog_write_select_sector         = 5;   // 업종 선택
+    final int Dialog_write_select_adress1        = 6;   // 시도 선택(작성)
+    final int Dialog_write_select_adress2        = 7;   // 군구 선택(작성)
+    final int Dialog_write_select_paytype        = 8;   // 지급 방법 선택
+    final int Dialog_write_select_sex             = 9;   // 성별 선택
+    final int Dialog_write_select_adtype         = 10;  // 광고 유형 선택
+    final int Dialog_write_select_addate         = 11;  // 광고 기간 선택
+    final int Dialog_write_select_imgupload      = 12;    // 이미지 업로드 (이미지 눌렀을떄)
 
     // 탭1 상단 레이아웃
     TextView tab1_search_adress1;
@@ -116,6 +136,26 @@ public class Main extends AppCompatActivity {
     String write_usepoint_value = null;         //- 자동 계산 소모 포인트
 
 
+    //탭 3 카메라 부분
+    private static final int PICK_FROM_CAMERA = 0;
+    private static final int PICK_FROM_ALBUM = 1;
+    private static final int CROP_FROM_iMAGE = 2;
+
+    Bitmap photo = null;
+    String photo_path;
+    Uri mImageCaptureUri;
+    private int id_view;
+    private String absoultePath;
+    private byte[] imgbyte = null;
+
+
+    //이미지 업로드 부분
+    String lineEnd = "\r\n";
+    String twoHyphens = "--";
+    String boundary = "*****";
+    URL connectUrl = null;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -124,6 +164,8 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.main);
 
         MainContext = this;
+        loading = new ProgressDialog(this);
+        InitShow();
 
         // 버튼 초기화
         init_tablist();
@@ -153,6 +195,7 @@ public class Main extends AppCompatActivity {
         add_Linear.addView(tab_1.in_layout,layoutParams);
 
         tab1_initlayout();
+        Tampimgdelete();   // 3번쨰 탭 임시 이미지 삭제
 
         // 임시
         tab_1.Tamps();
@@ -169,6 +212,7 @@ public class Main extends AppCompatActivity {
         add_Linear.addView(tab_2.in_layout,layoutParams);
 
         tab2_initlayout();
+        Tampimgdelete();   // 3번쨰 탭 임시 이미지 삭제
 
         // 임시
         tab_2.Tamps();
@@ -197,6 +241,8 @@ public class Main extends AppCompatActivity {
         add_Linear.removeAllViews();
         add_Linear.addView(tab_4.in_layout,layoutParams);
 
+        Tampimgdelete();   // 3번쨰 탭 임시 이미지 삭제
+
         select_tabNum = 4;
     }
 
@@ -207,6 +253,8 @@ public class Main extends AppCompatActivity {
         //레이아웃 인플레어
         add_Linear.removeAllViews();
         add_Linear.addView(tab_5.in_layout,layoutParams);
+
+        Tampimgdelete();   // 3번쨰 탭 임시 이미지 삭제
 
         select_tabNum = 5;
 
@@ -439,7 +487,7 @@ public class Main extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-
+                showDialog(Dialog_write_select_imgupload);
             }
         });
 
@@ -554,7 +602,29 @@ public class Main extends AppCompatActivity {
     {
         if(chackvalue())
         {
-            Toast.makeText(this, "작성 완료", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "닉네임 : "+ write_name_value
+                    +"\n 업종 : "+ write_sector_value
+                    +"\n 시도 : "+ write_adress1_value
+                    +"\n 군구 : "+ write_adress2_value
+                    +"\n 금액 : "+ write_payvalue_value
+                    +"\n 지급 : "+ write_paytype_value
+                    +"\n 나이 : "+ write_age_value
+                    +"\n 성별 : "+ write_sex_value
+                    +"\n 연락처 : "+ write_call_value
+                    +"\n 테마-초보가능 : "+ options_value[0]
+                    +"\n 테마-당일지급 : "+ options_value[1]
+                    +"\n 테마-경력우대 : "+ options_value[2]
+                    +"\n 테마-출퇴근자유 : "+ options_value[3]
+                    +"\n 테마-파트타임 : "+ options_value[4]
+                    +"\n 테마-차비지원 : "+ options_value[5]
+                    +"\n 테마-숙식제공 : "+ options_value[6]
+                    +"\n 테마-성형지원 : "+ options_value[7]
+                    +"\n 테마-선불가능 : "+ options_value[8]
+                    +"\n 가게소개 : "+ write_content_value
+                    +"\n 광고유형 : "+ write_adtype_value
+                    +"\n 광고기간 : "+ write_addate_value
+                    +"\n 소모 포인트 : "+ write_usepoint_value,Toast.LENGTH_LONG).show();
+
 
             SET_tab_refash(1);
 
@@ -691,14 +761,229 @@ public class Main extends AppCompatActivity {
             chack = true;
         }
 
-
-
-
         return chack;
     }
 
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 사진, 갤러리 부분
 
+
+    //////////////////////////////////// 사진 카메라, 앨범 //////////////////////////////////////////////
+
+    public void doTakePhotoAction() // 카메라 촬영 후 이미지 가져오기
+    {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        // 임시로 사용할 파일의 경로를 생성
+        String url = "tmp_" + String.valueOf(System.currentTimeMillis()) + ".png";
+        //mImageCaptureUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), url));
+        // Crop된 이미지를 저장할 파일의 경로를 생성
+        mImageCaptureUri = createSaveCropFile();
+
+        intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+        startActivityForResult(intent, PICK_FROM_CAMERA);
+    }
+
+
+    // 앨범에서 사진 가져오기
+    public void doTakeAlbumAction() {
+        // 앨범 호출
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
+        startActivityForResult(intent, PICK_FROM_ALBUM);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Toast.makeText(getBaseContext(), "resultCode : " + resultCode, Toast.LENGTH_SHORT).show();
+
+        if (resultCode != RESULT_OK) {
+            return;
+        }
+
+        switch (requestCode) {
+            case PICK_FROM_ALBUM: {   //앨범 이미지
+                mImageCaptureUri = data.getData();
+                File original_file = getImageFile(mImageCaptureUri);
+
+                mImageCaptureUri = createSaveCropFile();
+                File cpoy_file = new File(mImageCaptureUri.getPath());
+
+                // SD카드에 저장된 파일을 이미지 Crop을 위해 복사한다.
+                copyFile(original_file, cpoy_file);
+
+            }
+
+            case PICK_FROM_CAMERA: {   //촬영 이미지
+                Intent intent = new Intent("com.android.camera.action.CROP");
+                intent.setDataAndType(mImageCaptureUri, "image/*");
+
+                intent.putExtra("output", mImageCaptureUri);
+
+                /*
+                intent.putExtra("outputX", 1000);
+                intent.putExtra("outputY", 1000);
+                intent.putExtra("aspectX", 1);
+                intent.putExtra("aspectY", 1);
+                intent.putExtra("scale", true);
+                intent.putExtra("return-data", true);
+                */
+                startActivityForResult(intent, CROP_FROM_iMAGE);
+
+                break;
+            }
+            case CROP_FROM_iMAGE: {
+                // 크롭이 된 이후의 이미지를 넘겨 받습니다.
+
+                // 이미지뷰에 이미지를 보여준다거나 부가적인 작업 이후에
+
+                // 임시 파일을 삭제합니다.
+
+                if (resultCode != RESULT_OK) {
+                    return;
+                }
+
+                final Bundle extras = data.getExtras();
+                // CROP된 이미지를 저장하기 위한 FILE 경로
+
+                // String filePath = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/SmartWheel/"+System.currentTimeMillis()+".jpg";
+
+                if (extras != null) {
+                    /*
+                    Bitmap photo = (Bitmap) data.getExtras().get("data"); // CROP된 BITMAP
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    photo.compress(Bitmap.CompressFormat.PNG,100,stream);
+                    */
+                    String full_path = mImageCaptureUri.getPath();
+                    photo_path = full_path.substring(0, full_path.length());
+                    photo = BitmapFactory.decodeFile(photo_path);
+
+                    ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                    photo.compress(Bitmap.CompressFormat.JPEG, 50, byteArray);
+                    imgbyte = byteArray.toByteArray();
+
+
+                    //write_img_select.setImageBitmap(photo);
+                    Glide.with(this.getApplicationContext()).load(photo_path).centerCrop().bitmapTransform(new CropCircleTransformation(this.getApplicationContext()))
+                            .error(R.drawable.default_companyimg).into(write_picture);
+                    //                Log.i("TAG1,", "포토 :" + photo + "   갯 :"+ photo.getGenerationId());
+                   // Toast.makeText(getBaseContext(), "잘생겼는지 체크중..", Toast.LENGTH_SHORT).show();
+
+
+                }
+                // 임시 파일 삭제
+                File f = new File(mImageCaptureUri.getPath());
+/*
+                if (f.exists()) {
+                    f.delete();
+                }
+*/
+                break;
+            }
+        }
+    }
+
+    /**
+     * Crop된 이미지가 저장될 파일을 만든다.
+     *
+     * @return Uri
+     */
+
+    private Uri createSaveCropFile() {
+        Uri uri;
+        String url = "tmp_" + String.valueOf(System.currentTimeMillis()) + ".jpg";
+        uri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), url));
+        return uri;
+    }
+
+    /**
+     * 선택된 uri의 사진 Path를 가져온다.
+     * uri 가 null 경우 마지막에 저장된 사진을 가져온다.
+     *
+     * @param uri
+     * @return
+     */
+    private File getImageFile(Uri uri) {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        if (uri == null) {
+            uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+        }
+
+        Cursor mCursor = getContentResolver().query(uri, projection, null, null,
+                MediaStore.Images.Media.DATE_MODIFIED + " desc");
+        if (mCursor == null || mCursor.getCount() < 1) {
+            return null; // no cursor or no record
+        }
+        int column_index = mCursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        mCursor.moveToFirst();
+
+        String path = mCursor.getString(column_index);
+
+        if (mCursor != null) {
+            mCursor.close();
+            mCursor = null;
+        }
+
+        return new File(path);
+    }
+
+    public static boolean copyFile(File srcFile, File destFile) {
+        boolean result = false;
+        try {
+            InputStream in = new FileInputStream(srcFile);
+            try {
+                result = copyToFile(in, destFile);
+            } finally {
+                in.close();
+            }
+        } catch (IOException e) {
+            result = false;
+        }
+        return result;
+    }
+
+    /**
+     * Copy data from a source stream to destFile.
+     * Return true if succeed, return false if failed.
+     */
+    private static boolean copyToFile(InputStream inputStream, File destFile) {
+        try {
+            OutputStream out = new FileOutputStream(destFile);
+            try {
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+                while ((bytesRead = inputStream.read(buffer)) >= 0) {
+                    out.write(buffer, 0, bytesRead);
+                }
+            } finally {
+                out.close();
+            }
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    public void Tampimgdelete()
+    {
+        // 임시 파일 삭제
+
+        if(imgbyte != null)
+        {
+            File f = new File(mImageCaptureUri.getPath());
+            if (f.exists())
+            {
+                f.delete();
+                Log.i("delete","success");
+            }
+        }
+    }
+
+
+
+//------------------------------------------------------------------탭 4 ----------------------------------------------------------//
 
 
 
@@ -963,6 +1248,37 @@ public class Main extends AppCompatActivity {
 
                 return alert;
             }
+            case Dialog_write_select_imgupload:
+                final CharSequence[] item = {"카메라", "갤러리", "취소"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                builder.setTitle("사진 불러오기") // 제목 설정
+                        .setItems(item, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if (item[i].toString().equals(item[0])) {
+                                    doTakePhotoAction();
+                                }
+                                else if (item[i].toString().equals(item[1]))
+                                {
+                                    doTakeAlbumAction();
+                                }
+                                else
+                                {
+                                    if (mImageCaptureUri != null) {
+                                        // 임시 파일 삭제
+                                        File f = new File(mImageCaptureUri.getPath());
+                                        if (f.exists()) {
+                                            f.delete();
+
+                                        }
+                                    }
+                                    dialogInterface.dismiss();
+                                }
+                            }
+                        });
+
+                AlertDialog alert = builder.create();  //알림 객체 생성
+                return alert;
         }
 
         return null;
@@ -1241,4 +1557,47 @@ public class Main extends AppCompatActivity {
         }
     }
 
+
+    // 뒤로가기 (종료 메인이라서)
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            //하드웨어 뒤로가기 버튼에 따른 이벤트 설정
+            case KeyEvent.KEYCODE_BACK:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                builder.setTitle("[앱 종료]") // 제목 설정
+                        .setMessage("밤엔알바를 종료 하시겠습니까?")
+                        .setCancelable(false)  //뒤로 버튼 클릭시 취소 설정
+                        .setPositiveButton("예", new DialogInterface.OnClickListener() {
+                            // 예 버튼 클릭시 설정
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+
+                                // 프로세스 종료.
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("아니요", null).show();
+
+                AlertDialog alert = builder.create();  //알림 객체 생성
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+    // 프로그레스 설정
+    public void InitShow()
+    {
+        loading.setProgress(ProgressDialog.STYLE_SPINNER);
+        loading.setCanceledOnTouchOutside(false);
+        loading.setMessage("정보를 불러오는 중입니다..");
+    }
+    public void SetmsgShow(String value)
+    {
+        loading.setMessage(value);
+    }
+    public void StartShow() {loading.show();}
+    public void StopShow() {loading.dismiss();}
 }
