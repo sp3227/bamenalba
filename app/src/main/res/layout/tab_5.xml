@@ -16,6 +16,7 @@
 
         <!-- 이용안내 -->
         <LinearLayout
+            android:onClick="tab5_click_useagee"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -41,6 +42,7 @@
 
         <!-- 충전하기 -->
         <LinearLayout
+            android:onClick="tab5_click_charge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -65,6 +67,7 @@
 
         <!-- 내정보 -->
         <LinearLayout
+            android:onClick="tab5_click_mypage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -89,6 +92,7 @@
 
         <!-- 마이페이지 -->
         <LinearLayout
+            android:onClick="tab5_click_setting"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"

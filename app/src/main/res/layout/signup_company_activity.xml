@@ -630,7 +630,7 @@
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:textSize="15sp"
-                        android:text="위치정보 취급방침 동의"
+                        android:text="위치정보 취급 동의"
                         android:textColor="@color/backgroundcolor"
                         android:textStyle="bold" />
 

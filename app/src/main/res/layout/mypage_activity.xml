@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/basecolor"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/backgroundcolor">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:paddingLeft="15sp"
+            android:text="내정보"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:onClick="mypage_close"
+                android:layout_alignParentRight="true"
+                android:layout_width="50dp"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_close"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/tab5_sub_mypage_img"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="13sp"
+                            android:text="미풍양속에 위반되는 사진 또는 닉네임은 삭제 될 수 있습니다."/>
+
+                    </LinearLayout>
+
+                    <!-- 닉네임 나이  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <EditText
+                                android:id="@+id/tab5_sub_mypage_edit_nickname"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@android:color/transparent"
+                                android:gravity="bottom|center"
+                                android:maxLength="8"
+                                android:paddingLeft="15dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorAccent"
+                                android:textColorHint="#b2b2b2"
+                                android:textSize="@dimen/edit_size" />
+
+                        </LinearLayout>
+
+                        <!-- 위라인 -->
+                        <LinearLayout
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#ababab">
+
+                        </LinearLayout>
+                        <!-- 위라인 -->
+
+                        <LinearLayout
+                            android:id="@+id/tab5_sub_mypage_spenner_age"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1.8">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/tab5_sub_mypage_text_age"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center|bottom"
+                                    android:hint="나이"
+                                    android:textColor="@color/textcolor"
+                                    android:paddingRight="10dp"
+                                    android:textColorHint="@color/hintcolor"
+                                    android:textSize="@dimen/edit_size" />
+
+                                <LinearLayout
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentRight="true"
+                                    android:background="@drawable/pinkbox_round"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/icon_arrow" />
+
+
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <!-- 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ababab"></LinearLayout>
+                    <!-- 라인  -->
+
+
+                    <!-- 성별  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom|left"
+                                android:paddingLeft="15dp"
+                                android:text="성별(선택)"
+                                android:textColor="@color/textcolor"
+                                android:textSize="@dimen/edit_size"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/tab5_sub_mypage_chack_man"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="15dp"
+                                    android:gravity="center|bottom"
+                                    android:paddingLeft="15dp"
+                                    android:text="남자"
+                                    android:textColor="@color/man"
+                                    android:textSize="@dimen/edit_size" />
+
+
+                                <CheckBox
+                                    android:id="@+id/tab5_sub_mypage_chackbox_man"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/chackbox_1"
+                                    android:clickable="false"
+                                    android:button="@android:color/transparent" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:id="@+id/tab5_sub_mypage_chack_girl"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginBottom="15dp"
+                                        android:gravity="center|bottom"
+                                        android:paddingLeft="15dp"
+                                        android:text="여자"
+                                        android:textColor="@color/girl"
+                                        android:textSize="@dimen/edit_size" />
+
+
+                                    <CheckBox
+                                        android:id="@+id/tab5_sub_mypage_chackbox_girl"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/chackbox_2"
+                                        android:clickable="false"
+                                        android:button="@android:color/transparent" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <!-- 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ababab"></LinearLayout>
+                    <!-- 라인  -->
+
+                    <!-- 시도 군구  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/tab5_sub_mypage_spenner_address_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center|bottom"
+                                android:text="시도"
+                                android:textColor="@color/textcolor"
+                                android:textSize="@dimen/edit_size"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginRight="5dp">
+
+                                <TextView
+                                    android:id="@+id/tab5_sub_mypage_text_address_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:gravity="center|bottom"
+                                    android:hint="선택"
+                                    android:paddingRight="15dp"
+                                    android:textColor="@color/textcolor"
+                                    android:textColorHint="@color/textcolor"
+                                    android:textSize="@dimen/edit_size" />
+
+                                <LinearLayout
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentRight="true"
+                                    android:background="@drawable/pinkbox_round"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/icon_arrow" />
+
+
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                        <!-- 위라인 -->
+                        <LinearLayout
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#ababab">
+
+                        </LinearLayout>
+                        <!-- 위라인 -->
+
+
+                        <LinearLayout
+                            android:id="@+id/tab5_sub_mypage_spenner_address_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginLeft="5dp"
+                                android:gravity="center|bottom"
+                                android:text="군구"
+                                android:textColor="@color/textcolor"
+                                android:textSize="@dimen/edit_size"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="15dp">
+
+                                <TextView
+                                    android:id="@+id/tab5_sub_mypage_text_address_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:gravity="center|bottom"
+                                    android:hint="선택"
+                                    android:paddingRight="15dp"
+                                    android:textColor="@color/textcolor"
+                                    android:textColorHint="@color/textcolor"
+                                    android:textSize="@dimen/edit_size" />
+
+                                <LinearLayout
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentRight="true"
+                                    android:background="@drawable/pinkbox_round"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/icon_arrow" />
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <!-- 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ababab"></LinearLayout>
+                    <!-- 라인  -->
+
+                    <!-- 희망 업종  -->
+                    <LinearLayout
+                        android:id="@+id/tab5_sub_mypage_spenner_sector"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tab5_sub_mypage_title_sector"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:gravity="center|bottom"
+                            android:text="희망업종"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/edit_size"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp">
+
+                            <TextView
+                                android:id="@+id/tab5_sub_mypage_text_sector"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center|bottom"
+                                android:hint="선택"
+                                android:paddingRight="10dp"
+                                android:textColor="@color/textcolor"
+                                android:textColorHint="@color/textcolor"
+                                android:textSize="@dimen/edit_size" />
+
+
+                            <LinearLayout
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/pinkbox_round"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/icon_arrow" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <!-- 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ababab"></LinearLayout>
+                    <!-- 라인  -->
+
+                    <!-- 한마디  -->
+                    <LinearLayout
+                        android:id="@+id/tab5_sub_mypage_spenner_ment"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp"
+                            android:gravity="center|bottom"
+                            android:text="한마디"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/edit_size"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="15dp">
+
+
+                            <LinearLayout
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/pinkbox_round"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/icon_arrow" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tab5_sub_mypage_text_ment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center|bottom"
+                                android:hint="한마디를 선택하세요."
+                                android:paddingRight="19dp"
+                                android:textColor="@color/textcolor"
+                                android:textColorHint="@color/textcolor"
+                                android:textSize="@dimen/edit_size"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <!-- 라인  -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ababab"></LinearLayout>
+                    <!-- 라인  -->
+
+                    <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="* 변경항목을 선택후 변경 완료 버튼을 터치해주세요."
+                            android:textColor="@color/hintcolor"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+    </ScrollView>
+
+        <RelativeLayout
+            android:onClick="tab5_sub_mypage_click_submit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="bottom">
+
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@color/btn1">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="변경 완료"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_marginLeft="6dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_ok"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

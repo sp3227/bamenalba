@@ -976,18 +976,60 @@ public class Main extends AppCompatActivity {
             if (f.exists())
             {
                 f.delete();
-                Log.i("delete","success");
             }
         }
     }
 
 
 
-//------------------------------------------------------------------탭 4 ----------------------------------------------------------//
+    //------------------------------------------------------------------탭 4 ----------------------------------------------------------//
 
 
 
 
+
+
+
+
+    //------------------------------------------------------------------탭 5 ----------------------------------------------------------//
+
+
+
+    // 버튼 리스너
+    // 이용약관
+    public void tab5_click_useagee(View v)
+    {
+        Intent intent = new Intent(this, Agee_Activity.class);
+        intent.putExtra("agee_type","agee1");
+
+        startActivity(intent);
+    }
+
+    // 충전하기
+    public void tab5_click_charge(View v)
+    {
+        Intent intent = new Intent(this, Charge_Activity.class);
+        startActivity(intent);
+    }
+
+    // 내정보
+    public void tab5_click_mypage(View v)
+    {
+        Intent intent = new Intent(this, Mypage_Activity.class);
+        startActivity(intent);
+    }
+
+    // 설정
+    public void tab5_click_setting(View v)
+    {
+        Intent intent = new Intent(this, Setting_Activity.class);
+        startActivity(intent);
+    }
+
+
+
+
+    //------------------------------------------------------------------다이얼로그 ----------------------------------------------------------//
     public Dialog onCreateDialog(int id)
     {
         switch(id)
@@ -1576,6 +1618,7 @@ public class Main extends AppCompatActivity {
                             {
 
                                 // 프로세스 종료.
+                                Tampimgdelete(); // 임시저장 작성 이미지 삭제
                                 finish();
                             }
                         })

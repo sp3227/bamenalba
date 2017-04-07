@@ -3,13 +3,14 @@ package com.moduse.bamenalba;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
@@ -59,6 +60,10 @@ public class Intro_Activity extends AppCompatActivity {
     String SENDER_ID;
     String token;
 
+
+    // 유저 세팅 불러오기
+    SharedPreferences setting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -70,6 +75,17 @@ public class Intro_Activity extends AppCompatActivity {
         SetmsgShow("밤엔알바에 접속중입니다.");
 
         appInfo = new AppInfo();
+
+        // 유저 세팅값 불러오기 푸시 스위치
+        setting = getSharedPreferences("setting", 0);  // 로컬 불러오기 선언
+        if(setting.getBoolean("PUSH_STATE",true))
+        {
+            AppInfo.My_PUSH_STATE = true;
+        }
+        else
+        {
+            AppInfo.My_PUSH_STATE = false;
+        }
 
         //GPS 가져오기
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);  // LocationManager  객체 얻어오기
@@ -204,7 +220,7 @@ public class Intro_Activity extends AppCompatActivity {
                 //accreditationToDatabase(appInfo.Get_AppVer(),appInfo.Get_CertificationKey(),appInfo.Get_CertificationURL());
 
                 //----------임시 ----------------//
-                Intent intent = new Intent(getApplicationContext(),Select_signup_Activity.class);
+                Intent intent = new Intent(getApplicationContext(),Main.class);
 
                 /*
                 Log.i("get","MY_LOGINID : "+AppInfo.MY_LOGINID);

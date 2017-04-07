@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/basecolor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/backgroundcolor">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:paddingLeft="15sp"
+            android:text="설정"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:onClick="setting_close"
+                android:layout_alignParentRight="true"
+                android:layout_width="50dp"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_close"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/gray_round">
+
+            <LinearLayout
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="상담채팅 알림받기"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="상담 쪽지 또는 업체 쪽지 받기를 설정합니다."
+                    android:textColor="@color/hintcolor"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:gravity="center|right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 알람 스위치 -->
+                <CheckBox
+                    android:id="@+id/tab5_sub_setting_push"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/chackbox_2"
+                    android:clickable="true"
+                    android:checked="true"
+                    android:button="@android:color/transparent" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab5_sub_setting_signout"
+            android:layout_marginTop="6dp"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/gray_round">
+
+            <LinearLayout
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="밤엔알바 탈퇴하기"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"
+                    android:id="@+id/textView" />
+
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="밤엔알바를 탈퇴합니다. 탈퇴 이후 모든 정보는 삭제되며, 복구가 불가능 하오니 신중히 선택해주세요."
+                    android:textColor="@color/hintcolor"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -25,10 +25,12 @@ public class AppInfo
     // 식별 아이디 (디바이스 ID 체크 & 다른거??상의)
     public static String MY_LOGINID;
 
-
     //MY GCM
     public static String MY_PUSHID;   // 푸시 아이디
     public static String MY_TYPE;     // 계정 타입 (구직자, 업체)
+
+    //개인 옵션
+    public static Boolean My_PUSH_STATE = true;   // 푸시 알림 설정 (ON / OFF)
 
     // 내 위치 정보(로그인시 한번만 기록됨)
     public static  boolean GPS_state = false;   // GPS 상태
